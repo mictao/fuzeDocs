@@ -7,9 +7,8 @@
 
 - (id)init
 {
-    //self.clientUrl = @"http://docs.preview.myevoco.com/";
     self.umServiceUrl = @"UserManagement/Services/UserServices.svc";
-    self.docsServiceUrl = @"Documents/Serices/DocumentsService.svc";
+    self.docsServiceUrl = @"Documents/Services/DocumentsService.svc";
     
     return [super init];
 }
@@ -126,9 +125,14 @@
     NSURLResponse *resp;
     
     NSData *data = [NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&error];
+    NSLog(@"Error: %@", error);
     
     if (data.length > 0 && error == nil)
     {
+        //NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        //NSLog(@"%@", json);
+        
+        
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         NSLog(@"Error: %@", error);
         //NSLog(@"JSON: %@", dic);
@@ -205,14 +209,33 @@
 
 - (FolderDTO *) getRootFolderForAssociation:(NSString *) assID;
 {
-    NSLog(@"assID: %@", assID);
+    //NSLog(@"assID: %@", assID);
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys: assID, @"assID", nil];
     NSDictionary *dic = [self makeServiceCall:self.docsServiceUrl method:@"GetRootFolderForAssociation" withArgs:args];
     
     NSLog(@"JSON: %@", dic);
     
+    NSDictionary *tdic = [dic objectForKey:@"TemplateFolder"];
     
-    /*NSArray *arr = [dic objectForKey:@"List"];
+    FolderDTO *folder = [[FolderDTO alloc] init];
+    folder.FolderID = [dic objectForKey:@"ID"];
+    folder.Name = [tdic objectForKey:@"Name"];
+    return folder;
+}
+
+- (NSArray *) getFolderContents:(NSString *)parentFolderID withDeleted:(BOOL)includeDeleted withEmptyFolders:(BOOL)includeEmptyFolders;
+{
+    NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:
+        parentFolderID, @"folderId",
+        includeDeleted, @"includeDeleted",
+        includeEmptyFolders, @"includeEmptyFolders",
+        nil];
+    NSDictionary *dic = [self makeServiceCall:self.docsServiceUrl method:@"GetFolderContents" withArgs:args];
+    
+    NSLog(@"JSON: %@", dic);
+    
+    /*
+    NSArray *arr = [dic objectForKey:@"List"];
     
     NSMutableArray *projects = [[NSMutableArray alloc] init];
     for (NSDictionary *d in arr)
@@ -223,14 +246,7 @@
         [projects addObject:project];
     }
     NSLog(@"projects: %@", projects);
-    return projects;
      */
-    return nil;
-
-}
-
-- (NSArray *) getFolderContents:(NSString *)parentFolderID withDeleted:(BOOL)includeDeleted withEmptyFolders:(BOOL)includeEmptyFolders;
-{
     return nil;
 }
 

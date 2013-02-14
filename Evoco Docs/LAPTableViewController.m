@@ -16,23 +16,9 @@
     [super viewDidLoad];
     
     self.wtClient = [[WebTopClient alloc] init];
-    self.wtClient.clientUrl = @"http://docs.preview.myevoco.com/";
-    
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    //self.docSectionTitle = @"Home";
-    
-    /*self.sites = @[
-                   @"Rio de Janeiro",
-                   @"Madagascar",
-                   @"Moscow",
-                   @"London",
-                   @"Milan",
-                   @"Minsk",
-                   @"Budapest"];
-    */
-    //self.projects = @[@"Coppacobana", @"Westmisnter", @"Hotel Henry V", @"Arc de Triomph"];
+    self.wtClient.clientUrl = @"http://biddernator.mypc/";
 }
+
 
 - (void) viewWillAppear:(BOOL)animated
 {
@@ -41,7 +27,7 @@
     switch (self.currentLevel) {
         case 0:
         {
-            [self.wtClient login:@"gabor.shaio@evoco.com" password:@"kolbasa1!"];
+            [self.wtClient login:@"gabor.shaio@evoco.com" password:@"1234"];
             self.sites = [self.wtClient getSites];
             break;
         }

@@ -7,9 +7,11 @@
 //
 
 #import "FoldersTableViewController.h"
+#import "WebTopClient.h"
+#import "FolderDTO.h"
 
 @interface FoldersTableViewController ()
-
+@property WebTopClient *wtClient;
 @end
 
 @implementation FoldersTableViewController
@@ -27,6 +29,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.wtClient = [[WebTopClient alloc] init];
+    self.wtClient.clientUrl = @"http://biddernator.mypc/";
+    
+    NSArray *arr = [self.wtClient getFolderContents:self.folderID withDeleted:NO withEmptyFolders:YES];
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
