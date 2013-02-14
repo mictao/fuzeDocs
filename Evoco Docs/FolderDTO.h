@@ -11,4 +11,6 @@
 @interface FolderDTO : NSObject
 @property NSString *ID;
 @property NSString *Name;
+@property BOOL HasDocuments;
+@property NSInteger SubfolderCount;
 @end
