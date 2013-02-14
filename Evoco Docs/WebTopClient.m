@@ -183,6 +183,15 @@
 
 
 
+- (FolderDTO *) getRootFolderForAssociation:(NSString *) assID;
+{
+    return nil;
+}
+
+- (NSArray *) getFolderContents:(NSString *)parentFolderID withDeleted:(BOOL)includeDeleted withEmptyFolders:(BOOL)includeEmptyFolders;
+{
+    return nil;
+}
 
 
 
