@@ -8,10 +8,11 @@
 @property NSString *umServiceUrl;
 @property NSString *docsServiceUrl;
 
+- (NSString *) login:(NSString *)user password:(NSString *)pass;
 
 - (void) setClientUrl:(NSString *)clientUrl;
 
-- (NSString *) login:(NSString *)user password:(NSString *)pass;
+- (ClientDTO *) getCurrentClient;
 - (NSArray *) getSites;
 - (NSArray *) getProjectsForSite:(NSString *)siteID;
 
