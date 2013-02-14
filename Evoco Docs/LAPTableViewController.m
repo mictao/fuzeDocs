@@ -205,7 +205,8 @@
         FoldersTableViewController *dest = segue.destinationViewController;
 
         NSString *assID;
-        switch (source.currentLevel) {
+        switch (source.currentLevel)
+        {
             case 0:
             {
                 ClientDTO *client = [self.wtClient getCurrentClient];
@@ -219,7 +220,7 @@
         
         //ProjectDTO *project = self.projects[self.tableView.indexPathForSelectedRow.row];
         FolderDTO *folder = [self.wtClient getRootFolderForAssociation:assID];
-        dest.folderID = folder.FolderID;
+        dest.folderID = folder.ID;
     }
     
 }

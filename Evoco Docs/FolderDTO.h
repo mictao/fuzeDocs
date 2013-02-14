@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface FolderDTO : NSObject
-@property NSString *FolderID;
+@property NSString *ID;
 @property NSString *Name;
 @end

@@ -2,6 +2,8 @@
 #import "ClientDTO.h"
 #import "SiteDTO.h"
 #import "ProjectDTO.h"
+#import "FolderDTO.h"
+#import "DocumentDTO.h"
 
 @implementation WebTopClient
 
@@ -218,7 +220,7 @@
     NSDictionary *tdic = [dic objectForKey:@"TemplateFolder"];
     
     FolderDTO *folder = [[FolderDTO alloc] init];
-    folder.FolderID = [dic objectForKey:@"ID"];
+    folder.ID = [dic objectForKey:@"ID"];
     folder.Name = [tdic objectForKey:@"Name"];
     return folder;
 }
@@ -232,22 +234,31 @@
         nil];
     NSDictionary *dic = [self makeServiceCall:self.docsServiceUrl method:@"GetFolderContents" withArgs:args];
     
+    
     NSLog(@"JSON: %@", dic);
     
-    /*
-    NSArray *arr = [dic objectForKey:@"List"];
+    NSMutableArray *results = [[NSMutableArray alloc] init];
     
-    NSMutableArray *projects = [[NSMutableArray alloc] init];
-    for (NSDictionary *d in arr)
+    NSArray *foldersArr = [dic objectForKey:@"Folders"];
+    for (NSDictionary *folderDic in foldersArr)
     {
-        ProjectDTO *project = [[ProjectDTO alloc] init];
-        project.ProjectID = [d objectForKey:@"ProjectID"];
-        project.Name = [d objectForKey:@"Name"];
-        [projects addObject:project];
+        NSDictionary *tdic = [folderDic objectForKey:@"TemplateFolder"];
+        FolderDTO *folder = [[FolderDTO alloc] init];
+        folder.ID = [folderDic objectForKey:@"ID"];
+        folder.Name = [tdic objectForKey:@"Name"];
+        [results addObject:folder];
     }
-    NSLog(@"projects: %@", projects);
-     */
-    return nil;
+
+    NSArray *docsArr = [dic objectForKey:@"Documents"];
+    for (NSDictionary *docDic in docsArr)
+    {
+        DocumentDTO *doc = [[DocumentDTO alloc] init];
+        doc.ID = [docDic objectForKey:@"ID"];
+        doc.Name = [docDic objectForKey:@"Name"];
+        [results addObject:doc];
+    }
+
+    return results;
 }
 
 
