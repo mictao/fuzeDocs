@@ -11,6 +11,7 @@
 		1419E7AB16CCB28A00A413FC /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1419E7A916CCB28A00A413FC /* iphone.png */; };
 		1419E7AC16CCB28A00A413FC /* iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1419E7AA16CCB28A00A413FC /* iphone@2x.png */; };
 		1419E7AF16CD475E00A413FC /* FolderDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1419E7AE16CD475E00A413FC /* FolderDTO.m */; };
+		1422903316CD5723002488D2 /* ClientDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1422903216CD5723002488D2 /* ClientDTO.m */; };
 		14382FE216CC32CB0062C71E /* SiteDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 14382FE116CC32CB0062C71E /* SiteDTO.m */; };
 		14382FE516CC52070062C71E /* ProjectDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 14382FE416CC52070062C71E /* ProjectDTO.m */; };
 		147111A216CAC2FD007840D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147111A116CAC2FD007840D4 /* UIKit.framework */; };
@@ -35,6 +36,8 @@
 		1419E7AA16CCB28A00A413FC /* iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone@2x.png"; sourceTree = "<group>"; };
 		1419E7AD16CD475E00A413FC /* FolderDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderDTO.h; sourceTree = "<group>"; };
 		1419E7AE16CD475E00A413FC /* FolderDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderDTO.m; sourceTree = "<group>"; };
+		1422903116CD5723002488D2 /* ClientDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientDTO.h; sourceTree = "<group>"; };
+		1422903216CD5723002488D2 /* ClientDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientDTO.m; sourceTree = "<group>"; };
 		14382FE016CC32CB0062C71E /* SiteDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteDTO.h; sourceTree = "<group>"; };
 		14382FE116CC32CB0062C71E /* SiteDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteDTO.m; sourceTree = "<group>"; };
 		14382FE316CC52070062C71E /* ProjectDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDTO.h; sourceTree = "<group>"; };
@@ -83,6 +86,8 @@
 				14382FE416CC52070062C71E /* ProjectDTO.m */,
 				1419E7AD16CD475E00A413FC /* FolderDTO.h */,
 				1419E7AE16CD475E00A413FC /* FolderDTO.m */,
+				1422903116CD5723002488D2 /* ClientDTO.h */,
+				1422903216CD5723002488D2 /* ClientDTO.m */,
 			);
 			name = DTOs;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 				14382FE516CC52070062C71E /* ProjectDTO.m in Sources */,
 				140161EC16CC678B0071AB98 /* FoldersTableViewController.m in Sources */,
 				1419E7AF16CD475E00A413FC /* FolderDTO.m in Sources */,
+				1422903316CD5723002488D2 /* ClientDTO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

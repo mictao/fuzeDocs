@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "ClientDTO.h"
 #import "FolderDTO.h"
 
 @interface WebTopClient : NSObject
@@ -9,6 +10,7 @@
 
 - (void) login:(NSString *)user password:(NSString *)pass;
 
+- (ClientDTO *) getCurrentClient;
 - (NSArray *) getSites;
 - (NSArray *) getProjectsForSite:(NSString *)siteID;
 

@@ -1,4 +1,5 @@
 #import "WebTopClient.h"
+#import "ClientDTO.h"
 #import "SiteDTO.h"
 #import "ProjectDTO.h"
 
@@ -102,17 +103,21 @@
 {
     NSString *urlString = [self.clientUrl stringByAppendingFormat: @"%@/%@", serviceUrl, serviceFunction];
     NSError *error = nil;
-    NSData *reqData = [NSJSONSerialization dataWithJSONObject:args options:kNilOptions error:&error];
-    NSString* postDataLengthString = [[NSString alloc] initWithFormat:@"%d", reqData.length];
     
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *req = [NSMutableURLRequest  requestWithURL:url];
     req.timeoutInterval = 30.0f;
     req.HTTPMethod = @"POST";
-    req.HTTPBody = reqData;
     [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [req setValue:postDataLengthString forHTTPHeaderField:@"Content-Length"];
-    
+
+    if (args)
+    {
+        NSData *reqData = [NSJSONSerialization dataWithJSONObject:args options:kNilOptions error:&error];
+        NSString* postDataLengthString = [[NSString alloc] initWithFormat:@"%d", reqData.length];
+        req.HTTPBody = reqData;
+        [req setValue:postDataLengthString forHTTPHeaderField:@"Content-Length"];
+    }
+
     
     NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
     NSDictionary *headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
@@ -138,6 +143,19 @@
     }
     return nil;
     
+}
+
+
+- (ClientDTO *) getCurrentClient
+{
+    NSDictionary *dic = [self makeServiceCall:self.umServiceUrl method:@"GetCurrentClient" withArgs:nil];
+    NSLog(@"JSON: %@", dic);
+    
+    ClientDTO *client = [[ClientDTO alloc] init];
+    client.ClientID = [dic objectForKey:@"ClientID"];
+    client.Name = [dic objectForKey:@"ClientName"];
+    client.Url = [dic objectForKey:@"Url"];
+    return client;
 }
 
 
@@ -187,6 +205,7 @@
 
 - (FolderDTO *) getRootFolderForAssociation:(NSString *) assID;
 {
+    NSLog(@"assID: %@", assID);
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys: assID, @"assID", nil];
     NSDictionary *dic = [self makeServiceCall:self.docsServiceUrl method:@"GetRootFolderForAssociation" withArgs:args];
     
