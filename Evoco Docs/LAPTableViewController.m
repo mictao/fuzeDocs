@@ -5,7 +5,10 @@
 
 @interface LAPTableViewController ()
 
+    @property WebTopClient *wtClient;
+
 @end
+
 
 @implementation LAPTableViewController
 
@@ -13,20 +16,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    //self.docSectionTitle = @"Home";
-    
-    /*self.sites = @[
-                   @"Rio de Janeiro",
-                   @"Madagascar",
-                   @"Moscow",
-                   @"London",
-                   @"Milan",
-                   @"Minsk",
-                   @"Budapest"];
-    */
-    //self.projects = @[@"Coppacobana", @"Westmisnter", @"Hotel Henry V", @"Arc de Triomph"];
 }
+
 
 - (void) viewWillAppear:(BOOL)animated
 {
@@ -35,20 +26,15 @@
     switch (self.currentLevel) {
         case 0:
         {
-            WebTopClient *client = [[WebTopClient alloc]init];
-            [client login:@"gabor.shaio@evoco.com" password:@"1234"];
-            self.sites = [client getSites];
+            self.sites = [self.wtClient getSites];
             break;
         }
         case 1:
         {
-            WebTopClient *client = [[WebTopClient alloc]init];
-            self.projects = [client getProjectsForSite:self.currentSiteID];
+            self.projects = [self.wtClient getProjectsForSite:self.currentSiteID];
             break;
         }
     }
-    
-
 }
 
 
@@ -57,7 +43,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -209,9 +194,16 @@
         //DocsTableViewController *source = segue.sourceViewController;
         //DocsTableViewController *dest = segue.destinationViewController;
     }
-    
+    else if ([segue.identifier isEqualToString:@"LoginSuccess"])
+    {
+        //DocsTableViewController *source = segue.sourceViewController;
+        //DocsTableViewController *dest = segue.destinationViewController;
+    }}
+
+
+- (void) setWebTopClient: (WebTopClient*) client
+{
+    self.wtClient = client;
 }
-
-
 
 @end

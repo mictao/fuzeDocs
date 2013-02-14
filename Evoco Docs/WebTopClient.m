@@ -12,7 +12,7 @@
     return [super init];
 }
 
-- (void) login:(NSString *)user password:(NSString *)pass
+- (NSString *) login:(NSString *)user password:(NSString *)pass
 {
     NSString *urlString = [self.clientUrl stringByAppendingFormat: @"WebTop/Secured/VerifyLoginHandler.ashx?username=%@&password=%@&callback=*", user, pass];
     
@@ -41,20 +41,27 @@
         if (hasError)
         {
             NSString *errorCode = [dic objectForKey:@"ErrorCode"];
+            
+            if ([errorCode isEqualToString:@"um.AlreadyLoggedIn"]) { return nil; }
+            
             NSString *errorMessage = [dic objectForKey:@"ErrorMessage"];
             NSLog(@"LoginResponse Error Code:%@, Message:%@", errorCode, errorMessage);
+            return errorMessage;
         }
         else
         {
             NSString *authCookieValue = [dic objectForKey:@"AuthCookie"];
             [self setAuthCookie:authCookieValue];
+            return nil;
         }
     }
     else if (error != nil)
     {
         NSLog(@"Error: %@", error);
+        return [NSString stringWithFormat:@"Error: %@",error];
     }
-
+    
+    return @"Internal Error";
 }
 
 

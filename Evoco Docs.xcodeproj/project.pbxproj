@@ -23,6 +23,7 @@
 		147111BE16CAC2FD007840D4 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 147111BC16CAC2FD007840D4 /* MainStoryboard_iPad.storyboard */; };
 		147111C116CAC2FD007840D4 /* LAPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147111C016CAC2FD007840D4 /* LAPTableViewController.m */; };
 		147111C916CB12B4007840D4 /* WebTopClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 147111C816CB12B4007840D4 /* WebTopClient.m */; };
+		D2C563B216CC87CA00F786C8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C563B016CC87CA00F786C8 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		147111C016CAC2FD007840D4 /* LAPTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LAPTableViewController.m; sourceTree = "<group>"; };
 		147111C716CB12B4007840D4 /* WebTopClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebTopClient.h; sourceTree = "<group>"; };
 		147111C816CB12B4007840D4 /* WebTopClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebTopClient.m; sourceTree = "<group>"; };
+		D2C563AF16CC87CA00F786C8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		D2C563B016CC87CA00F786C8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				147111C716CB12B4007840D4 /* WebTopClient.h */,
 				147111C816CB12B4007840D4 /* WebTopClient.m */,
 				147111A816CAC2FD007840D4 /* Supporting Files */,
+				D2C563AF16CC87CA00F786C8 /* LoginViewController.h */,
+				D2C563B016CC87CA00F786C8 /* LoginViewController.m */,
 			);
 			path = "Evoco Docs";
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				14382FE216CC32CB0062C71E /* SiteDTO.m in Sources */,
 				14382FE516CC52070062C71E /* ProjectDTO.m in Sources */,
 				140161EC16CC678B0071AB98 /* FoldersTableViewController.m in Sources */,
+				D2C563B216CC87CA00F786C8 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

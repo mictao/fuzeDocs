@@ -5,7 +5,10 @@
 @property NSString *clientUrl;
 @property NSString *umServiceUrl;
 
-- (void) login:(NSString *)user password:(NSString *)pass;
+
+- (void) setClientUrl:(NSString *)clientUrl;
+
+- (NSString *) login:(NSString *)user password:(NSString *)pass;
 - (NSArray *) getSites;
 - (NSArray *) getProjectsForSite:(NSString *)siteID;
 
