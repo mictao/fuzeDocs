@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-@interface DocsTableViewController : UITableViewController
+@interface LAPTableViewController : UITableViewController
 
 @property NSInteger currentLevel;
 @property NSString *currentSiteID;

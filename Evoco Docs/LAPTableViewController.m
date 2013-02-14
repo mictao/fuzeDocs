@@ -1,13 +1,13 @@
-#import "DocsTableViewController.h"
+#import "LAPTableViewController.h"
 #import "WebTopClient.h"
 #import "SiteDTO.h"
 #import "ProjectDTO.h"
 
-@interface DocsTableViewController ()
+@interface LAPTableViewController ()
 
 @end
 
-@implementation DocsTableViewController
+@implementation LAPTableViewController
 
 - (void)viewDidLoad
 {
@@ -103,11 +103,12 @@
             break;
         case 1:
             
-            switch (self.currentLevel) {
+            switch (self.currentLevel)
+            {
                 case 0:
                     return @"Sites";
                 case 1:
-                    return @"Projects";
+                    return @"Project Documents";
             }
         default:
             return nil;
@@ -149,7 +150,7 @@
                 }
                 case 1:
                 {
-                    cell = [self createNewCell:@"LAPCell"];
+                    cell = [self createNewCell:@"DocCell"];
                     ProjectDTO *project = self.projects[indexPath.row];
                     cell.textLabel.text = project.Name;
                     break;
@@ -193,16 +194,22 @@
     NSLog(@"Destination Controller = %@", [segue destinationViewController]);
     NSLog(@"Segue Identifier = %@", [segue identifier]);
     
-    if ([[segue identifier] isEqualToString:@"LAPSegue"])
+    if ([segue.identifier isEqualToString:@"LAPSegue"])
     {
-        DocsTableViewController *source = segue.sourceViewController;
-        DocsTableViewController *dest = segue.destinationViewController;
+        LAPTableViewController *source = segue.sourceViewController;
+        LAPTableViewController *dest = segue.destinationViewController;
         
         dest.currentLevel = source.currentLevel + 1;
         SiteDTO *site = self.sites[self.tableView.indexPathForSelectedRow.row];
         dest.docSectionTitle = site.Name;
         dest.currentSiteID = site.SiteID;
     }
+    else if ([segue.identifier isEqualToString:@"DocSegue"])
+    {
+        //DocsTableViewController *source = segue.sourceViewController;
+        //DocsTableViewController *dest = segue.destinationViewController;
+    }
+    
 }
 
 
