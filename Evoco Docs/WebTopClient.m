@@ -6,7 +6,7 @@
 
 - (id)init
 {
-    self.clientUrl = @"http://biddernator.devtop.evoco.com/";
+    //self.clientUrl = @"http://docs.preview.myevoco.com/";
     self.umServiceUrl = @"UserManagement/Services/UserServices.svc";
     
     return [super init];

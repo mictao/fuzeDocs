@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		140161EC16CC678B0071AB98 /* FoldersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140161EB16CC678B0071AB98 /* FoldersTableViewController.m */; };
+		1419E7AB16CCB28A00A413FC /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1419E7A916CCB28A00A413FC /* iphone.png */; };
+		1419E7AC16CCB28A00A413FC /* iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1419E7AA16CCB28A00A413FC /* iphone@2x.png */; };
 		14382FE216CC32CB0062C71E /* SiteDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 14382FE116CC32CB0062C71E /* SiteDTO.m */; };
 		14382FE516CC52070062C71E /* ProjectDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 14382FE416CC52070062C71E /* ProjectDTO.m */; };
 		147111A216CAC2FD007840D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147111A116CAC2FD007840D4 /* UIKit.framework */; };
@@ -28,18 +30,20 @@
 /* Begin PBXFileReference section */
 		140161EA16CC678B0071AB98 /* FoldersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoldersTableViewController.h; sourceTree = "<group>"; };
 		140161EB16CC678B0071AB98 /* FoldersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoldersTableViewController.m; sourceTree = "<group>"; };
+		1419E7A916CCB28A00A413FC /* iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone.png; sourceTree = "<group>"; };
+		1419E7AA16CCB28A00A413FC /* iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone@2x.png"; sourceTree = "<group>"; };
 		14382FE016CC32CB0062C71E /* SiteDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteDTO.h; sourceTree = "<group>"; };
 		14382FE116CC32CB0062C71E /* SiteDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteDTO.m; sourceTree = "<group>"; };
 		14382FE316CC52070062C71E /* ProjectDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDTO.h; sourceTree = "<group>"; };
 		14382FE416CC52070062C71E /* ProjectDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDTO.m; sourceTree = "<group>"; };
-		1471119E16CAC2FD007840D4 /* Evoco Docs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Evoco Docs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1471119E16CAC2FD007840D4 /* fuze Docs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fuze Docs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		147111A116CAC2FD007840D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		147111A316CAC2FD007840D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		147111A516CAC2FD007840D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		147111A916CAC2FD007840D4 /* Evoco Docs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Evoco Docs-Info.plist"; sourceTree = "<group>"; };
+		147111A916CAC2FD007840D4 /* fuze Docs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "fuze Docs-Info.plist"; sourceTree = "<group>"; };
 		147111AB16CAC2FD007840D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		147111AD16CAC2FD007840D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		147111AF16CAC2FD007840D4 /* Evoco Docs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Evoco Docs-Prefix.pch"; sourceTree = "<group>"; };
+		147111AF16CAC2FD007840D4 /* fuze Docs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fuze Docs-Prefix.pch"; sourceTree = "<group>"; };
 		147111B016CAC2FD007840D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		147111B116CAC2FD007840D4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		147111B316CAC2FD007840D4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -90,7 +94,7 @@
 		1471119F16CAC2FD007840D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1471119E16CAC2FD007840D4 /* Evoco Docs.app */,
+				1471119E16CAC2FD007840D4 /* fuze Docs.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,10 +131,12 @@
 		147111A816CAC2FD007840D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				147111A916CAC2FD007840D4 /* Evoco Docs-Info.plist */,
+				1419E7A916CCB28A00A413FC /* iphone.png */,
+				1419E7AA16CCB28A00A413FC /* iphone@2x.png */,
+				147111A916CAC2FD007840D4 /* fuze Docs-Info.plist */,
 				147111AA16CAC2FD007840D4 /* InfoPlist.strings */,
 				147111AD16CAC2FD007840D4 /* main.m */,
-				147111AF16CAC2FD007840D4 /* Evoco Docs-Prefix.pch */,
+				147111AF16CAC2FD007840D4 /* fuze Docs-Prefix.pch */,
 				147111B316CAC2FD007840D4 /* Default.png */,
 				147111B516CAC2FD007840D4 /* Default@2x.png */,
 				147111B716CAC2FD007840D4 /* Default-568h@2x.png */,
@@ -141,9 +147,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1471119D16CAC2FD007840D4 /* Evoco Docs */ = {
+		1471119D16CAC2FD007840D4 /* fuze Docs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 147111C416CAC2FD007840D4 /* Build configuration list for PBXNativeTarget "Evoco Docs" */;
+			buildConfigurationList = 147111C416CAC2FD007840D4 /* Build configuration list for PBXNativeTarget "fuze Docs" */;
 			buildPhases = (
 				1471119A16CAC2FD007840D4 /* Sources */,
 				1471119B16CAC2FD007840D4 /* Frameworks */,
@@ -153,9 +159,9 @@
 			);
 			dependencies = (
 			);
-			name = "Evoco Docs";
+			name = "fuze Docs";
 			productName = "Evoco Docs";
-			productReference = 1471119E16CAC2FD007840D4 /* Evoco Docs.app */;
+			productReference = 1471119E16CAC2FD007840D4 /* fuze Docs.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -167,7 +173,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Evoco;
 			};
-			buildConfigurationList = 1471119916CAC2FD007840D4 /* Build configuration list for PBXProject "Evoco Docs" */;
+			buildConfigurationList = 1471119916CAC2FD007840D4 /* Build configuration list for PBXProject "fuze Docs" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -179,7 +185,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1471119D16CAC2FD007840D4 /* Evoco Docs */,
+				1471119D16CAC2FD007840D4 /* fuze Docs */,
 			);
 		};
 /* End PBXProject section */
@@ -195,6 +201,8 @@
 				147111B816CAC2FD007840D4 /* Default-568h@2x.png in Resources */,
 				147111BB16CAC2FD007840D4 /* MainStoryboard_iPhone.storyboard in Resources */,
 				147111BE16CAC2FD007840D4 /* MainStoryboard_iPad.storyboard in Resources */,
+				1419E7AB16CCB28A00A413FC /* iphone.png in Resources */,
+				1419E7AC16CCB28A00A413FC /* iphone@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,10 +315,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Evoco Docs/Evoco Docs-Prefix.pch";
-				INFOPLIST_FILE = "Evoco Docs/Evoco Docs-Info.plist";
+				GCC_PREFIX_HEADER = "Evoco Docs/fuze Docs-Prefix.pch";
+				INFOPLIST_FILE = "Evoco Docs/fuze Docs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "fuze Docs";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -319,10 +327,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Evoco Docs/Evoco Docs-Prefix.pch";
-				INFOPLIST_FILE = "Evoco Docs/Evoco Docs-Info.plist";
+				GCC_PREFIX_HEADER = "Evoco Docs/fuze Docs-Prefix.pch";
+				INFOPLIST_FILE = "Evoco Docs/fuze Docs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "fuze Docs";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -330,7 +338,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1471119916CAC2FD007840D4 /* Build configuration list for PBXProject "Evoco Docs" */ = {
+		1471119916CAC2FD007840D4 /* Build configuration list for PBXProject "fuze Docs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				147111C216CAC2FD007840D4 /* Debug */,
@@ -339,7 +347,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		147111C416CAC2FD007840D4 /* Build configuration list for PBXNativeTarget "Evoco Docs" */ = {
+		147111C416CAC2FD007840D4 /* Build configuration list for PBXNativeTarget "fuze Docs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				147111C516CAC2FD007840D4 /* Debug */,

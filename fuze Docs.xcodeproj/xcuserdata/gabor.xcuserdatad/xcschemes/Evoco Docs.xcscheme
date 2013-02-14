@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1471119D16CAC2FD007840D4"
-               BuildableName = "Evoco Docs.app"
-               BlueprintName = "Evoco Docs"
-               ReferencedContainer = "container:Evoco Docs.xcodeproj">
+               BuildableName = "fuze Docs.app"
+               BlueprintName = "fuze Docs"
+               ReferencedContainer = "container:fuze Docs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1471119D16CAC2FD007840D4"
-            BuildableName = "Evoco Docs.app"
-            BlueprintName = "Evoco Docs"
-            ReferencedContainer = "container:Evoco Docs.xcodeproj">
+            BuildableName = "fuze Docs.app"
+            BlueprintName = "fuze Docs"
+            ReferencedContainer = "container:fuze Docs.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1471119D16CAC2FD007840D4"
-            BuildableName = "Evoco Docs.app"
-            BlueprintName = "Evoco Docs"
-            ReferencedContainer = "container:Evoco Docs.xcodeproj">
+            BuildableName = "fuze Docs.app"
+            BlueprintName = "fuze Docs"
+            ReferencedContainer = "container:fuze Docs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1471119D16CAC2FD007840D4"
-            BuildableName = "Evoco Docs.app"
-            BlueprintName = "Evoco Docs"
-            ReferencedContainer = "container:Evoco Docs.xcodeproj">
+            BuildableName = "fuze Docs.app"
+            BlueprintName = "fuze Docs"
+            ReferencedContainer = "container:fuze Docs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

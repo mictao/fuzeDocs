@@ -4,7 +4,7 @@
 #import "ProjectDTO.h"
 
 @interface LAPTableViewController ()
-
+@property WebTopClient *wtClient;
 @end
 
 @implementation LAPTableViewController
@@ -12,6 +12,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.wtClient = [[WebTopClient alloc] init];
+    self.wtClient.clientUrl = @"http://docs.preview.myevoco.com/";
+    
 	// Do any additional setup after loading the view, typically from a nib.
     
     //self.docSectionTitle = @"Home";
@@ -35,15 +39,13 @@
     switch (self.currentLevel) {
         case 0:
         {
-            WebTopClient *client = [[WebTopClient alloc]init];
-            [client login:@"gabor.shaio@evoco.com" password:@"1234"];
-            self.sites = [client getSites];
+            [self.wtClient login:@"gabor.shaio@evoco.com" password:@"kolbasa1!"];
+            self.sites = [self.wtClient getSites];
             break;
         }
         case 1:
         {
-            WebTopClient *client = [[WebTopClient alloc]init];
-            self.projects = [client getProjectsForSite:self.currentSiteID];
+            self.projects = [self.wtClient getProjectsForSite:self.currentSiteID];
             break;
         }
     }
@@ -97,9 +99,15 @@
 
     self.title = self.docSectionTitle;
     
-    switch (section) {
+    switch (section)
+    {
         case 0:
-            return self.docSectionTitle;
+            switch (self.currentLevel) {
+                case 0:
+                    return self.wtClient.clientUrl;
+                case 1:
+                    return self.docSectionTitle;
+            }
             break;
         case 1:
             
@@ -110,9 +118,8 @@
                 case 1:
                     return @"Project Documents";
             }
-        default:
-            return nil;
     }
+    return nil;
 }
 
 
@@ -145,7 +152,7 @@
                     cell = [self createNewCell:@"LAPCell"];
                     SiteDTO *site = self.sites[indexPath.row];
                     cell.textLabel.text = site.Name;
-                    cell.detailTextLabel.text = site.City;
+                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", site.City, site.State ] ;
                     break;
                 }
                 case 1:
