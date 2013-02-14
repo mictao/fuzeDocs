@@ -160,4 +160,21 @@
      */
 }
 
+
+
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"Source Controller = %@", [segue sourceViewController]);
+    NSLog(@"Destination Controller = %@", [segue destinationViewController]);
+    NSLog(@"Segue Identifier = %@", [segue identifier]);
+    
+    FoldersTableViewController *source = segue.sourceViewController;
+    FoldersTableViewController *dest = segue.destinationViewController;
+    
+    FolderDTO *folder = self.folderContents[self.tableView.indexPathForSelectedRow.row];
+    dest.folderID = folder.ID;
+    
+}
+
 @end

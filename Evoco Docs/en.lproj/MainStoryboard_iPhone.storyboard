@@ -89,6 +89,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="aRW-Tk-wem" kind="push" id="lX7-L2-Iqi"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DocumentCell" textLabel="mHP-JW-Hda" detailTextLabel="vPb-y2-2uh" style="IBUITableViewCellStyleSubtitle" id="njM-U6-D3i">
                                 <rect key="frame" x="0.0" y="66" width="320" height="44"/>
@@ -121,7 +124,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G2y-61-cmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="493" y="19"/>
+            <point key="canvasLocation" x="635" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eY7-eD-CSS">
@@ -139,6 +142,14 @@
             <point key="canvasLocation" x="-472" y="19"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="FoldersTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FoldersTableViewController.h"/>
+        </class>
+        <class className="LAPTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -146,5 +157,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="KQ2-ZV-qRu"/>
+        <segue reference="0lo-Tq-fqY"/>
     </inferredMetricsTieBreakers>
 </document>
