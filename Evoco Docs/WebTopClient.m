@@ -1,4 +1,5 @@
 #import "WebTopClient.h"
+#import "ClientDTO.h"
 #import "SiteDTO.h"
 #import "ProjectDTO.h"
 
@@ -6,8 +7,8 @@
 
 - (id)init
 {
-    self.clientUrl = @"http://biddernator.devtop.evoco.com/";
     self.umServiceUrl = @"UserManagement/Services/UserServices.svc";
+    self.docsServiceUrl = @"Documents/Services/DocumentsService.svc";
     
     return [super init];
 }
@@ -103,21 +104,26 @@
 }
 
 
-- (NSDictionary *) makeServiceCall:(NSString *)serviceFunction withArgs:(NSDictionary *)args
+
+- (NSDictionary *) makeServiceCall:(NSString *)serviceUrl method:(NSString *)serviceFunction withArgs:(NSDictionary *)args
 {
-    NSString *urlString = [self.clientUrl stringByAppendingFormat: @"%@/%@", self.umServiceUrl, serviceFunction];
+    NSString *urlString = [self.clientUrl stringByAppendingFormat: @"%@/%@", serviceUrl, serviceFunction];
     NSError *error = nil;
-    NSData *reqData = [NSJSONSerialization dataWithJSONObject:args options:kNilOptions error:&error];
-    NSString* postDataLengthString = [[NSString alloc] initWithFormat:@"%d", reqData.length];
     
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *req = [NSMutableURLRequest  requestWithURL:url];
     req.timeoutInterval = 30.0f;
     req.HTTPMethod = @"POST";
-    req.HTTPBody = reqData;
     [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [req setValue:postDataLengthString forHTTPHeaderField:@"Content-Length"];
-    
+
+    if (args)
+    {
+        NSData *reqData = [NSJSONSerialization dataWithJSONObject:args options:kNilOptions error:&error];
+        NSString* postDataLengthString = [[NSString alloc] initWithFormat:@"%d", reqData.length];
+        req.HTTPBody = reqData;
+        [req setValue:postDataLengthString forHTTPHeaderField:@"Content-Length"];
+    }
+
     
     NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
     NSDictionary *headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
@@ -126,9 +132,14 @@
     NSURLResponse *resp;
     
     NSData *data = [NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&error];
+    NSLog(@"Error: %@", error);
     
     if (data.length > 0 && error == nil)
     {
+        //NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        //NSLog(@"%@", json);
+        
+        
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         NSLog(@"Error: %@", error);
         //NSLog(@"JSON: %@", dic);
@@ -146,10 +157,23 @@
 }
 
 
+- (ClientDTO *) getCurrentClient
+{
+    NSDictionary *dic = [self makeServiceCall:self.umServiceUrl method:@"GetCurrentClient" withArgs:nil];
+    NSLog(@"JSON: %@", dic);
+    
+    ClientDTO *client = [[ClientDTO alloc] init];
+    client.ClientID = [dic objectForKey:@"ClientID"];
+    client.Name = [dic objectForKey:@"ClientName"];
+    client.Url = [dic objectForKey:@"Url"];
+    return client;
+}
+
+
 - (NSArray *) getSites
 {
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys: @"", @"searchText", nil];
-    NSDictionary *dic = [self makeServiceCall:@"GetLocationsQuick" withArgs:args];
+    NSDictionary *dic = [self makeServiceCall:self.umServiceUrl method:@"GetLocationsQuick" withArgs:args];
         
     NSArray *arr = [dic objectForKey:@"List"];
 
@@ -172,7 +196,7 @@
 - (NSArray *) getProjectsForSite:(NSString *)siteID
 {
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys: siteID, @"locationID", nil];
-    NSDictionary *dic = [self makeServiceCall:@"GetProjectsForLocation" withArgs:args];
+    NSDictionary *dic = [self makeServiceCall:self.umServiceUrl method:@"GetProjectsForLocation" withArgs:args];
     
     NSArray *arr = [dic objectForKey:@"List"];
     
@@ -190,6 +214,48 @@
 
 
 
+- (FolderDTO *) getRootFolderForAssociation:(NSString *) assID;
+{
+    //NSLog(@"assID: %@", assID);
+    NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys: assID, @"assID", nil];
+    NSDictionary *dic = [self makeServiceCall:self.docsServiceUrl method:@"GetRootFolderForAssociation" withArgs:args];
+    
+    NSLog(@"JSON: %@", dic);
+    
+    NSDictionary *tdic = [dic objectForKey:@"TemplateFolder"];
+    
+    FolderDTO *folder = [[FolderDTO alloc] init];
+    folder.FolderID = [dic objectForKey:@"ID"];
+    folder.Name = [tdic objectForKey:@"Name"];
+    return folder;
+}
+
+- (NSArray *) getFolderContents:(NSString *)parentFolderID withDeleted:(BOOL)includeDeleted withEmptyFolders:(BOOL)includeEmptyFolders;
+{
+    NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:
+        parentFolderID, @"folderId",
+        includeDeleted, @"includeDeleted",
+        includeEmptyFolders, @"includeEmptyFolders",
+        nil];
+    NSDictionary *dic = [self makeServiceCall:self.docsServiceUrl method:@"GetFolderContents" withArgs:args];
+    
+    NSLog(@"JSON: %@", dic);
+    
+    /*
+    NSArray *arr = [dic objectForKey:@"List"];
+    
+    NSMutableArray *projects = [[NSMutableArray alloc] init];
+    for (NSDictionary *d in arr)
+    {
+        ProjectDTO *project = [[ProjectDTO alloc] init];
+        project.ProjectID = [d objectForKey:@"ProjectID"];
+        project.Name = [d objectForKey:@"Name"];
+        [projects addObject:project];
+    }
+    NSLog(@"projects: %@", projects);
+     */
+    return nil;
+}
 
 
 

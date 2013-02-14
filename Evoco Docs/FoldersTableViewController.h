@@ -10,4 +10,6 @@
 
 @interface FoldersTableViewController : UITableViewController
 
+@property NSString *folderID;
+
 @end

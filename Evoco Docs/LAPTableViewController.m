@@ -1,5 +1,7 @@
 #import "LAPTableViewController.h"
+#import "FoldersTableViewController.h"
 #import "WebTopClient.h"
+#import "ClientDTO.h"
 #import "SiteDTO.h"
 #import "ProjectDTO.h"
 
@@ -82,9 +84,15 @@
 
     self.title = self.docSectionTitle;
     
-    switch (section) {
+    switch (section)
+    {
         case 0:
-            return self.docSectionTitle;
+            switch (self.currentLevel) {
+                case 0:
+                    return self.wtClient.clientUrl;
+                case 1:
+                    return self.docSectionTitle;
+            }
             break;
         case 1:
             
@@ -95,9 +103,8 @@
                 case 1:
                     return @"Project Documents";
             }
-        default:
-            return nil;
     }
+    return nil;
 }
 
 
@@ -130,7 +137,7 @@
                     cell = [self createNewCell:@"LAPCell"];
                     SiteDTO *site = self.sites[indexPath.row];
                     cell.textLabel.text = site.Name;
-                    cell.detailTextLabel.text = site.City;
+                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", site.City, site.State ] ;
                     break;
                 }
                 case 1:
@@ -191,8 +198,25 @@
     }
     else if ([segue.identifier isEqualToString:@"DocSegue"])
     {
-        //DocsTableViewController *source = segue.sourceViewController;
-        //DocsTableViewController *dest = segue.destinationViewController;
+        LAPTableViewController *source = segue.sourceViewController;
+        FoldersTableViewController *dest = segue.destinationViewController;
+
+        NSString *assID;
+        switch (source.currentLevel) {
+            case 0:
+            {
+                ClientDTO *client = [self.wtClient getCurrentClient];
+                assID = client.ClientID;
+                break;
+            }
+        }
+        
+        
+        // the code below is not right
+        
+        //ProjectDTO *project = self.projects[self.tableView.indexPathForSelectedRow.row];
+        FolderDTO *folder = [self.wtClient getRootFolderForAssociation:assID];
+        dest.folderID = folder.FolderID;
     }
     else if ([segue.identifier isEqualToString:@"LoginSuccess"])
     {
