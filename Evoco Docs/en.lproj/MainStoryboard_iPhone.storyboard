@@ -155,11 +155,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIh-rf-UoJ">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="HJj-gh-yRu"/>
+                                    <constraint firstAttribute="height" constant="31" id="cXI-u6-fBA"/>
                                     <constraint firstAttribute="width" constant="95" id="vwe-T8-iIf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -172,10 +173,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZL-94-XdV">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="73" id="OwY-PT-8wf"/>
+                                    <constraint firstAttribute="width" constant="89" id="cfL-0P-ZxF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Clear">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -238,29 +240,37 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="left" image="fuze_header_text.png" translatesAutoresizingMaskIntoConstraints="NO" id="WdU-E7-EDn">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="RsX-kD-aJk"/>
+                                    <constraint firstAttribute="width" constant="295" id="u0c-lS-3GW"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YVe-5i-dQL" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="56" id="0ZJ-bu-ePb"/>
-                            <constraint firstItem="auR-3s-3Zf" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="15" id="15O-jD-QoD"/>
-                            <constraint firstItem="dIh-rf-UoJ" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="202" id="1wP-ot-5l0"/>
-                            <constraint firstAttribute="trailing" secondItem="SZL-94-XdV" secondAttribute="trailing" constant="55" id="4sH-vB-5ne"/>
+                            <constraint firstItem="WdU-E7-EDn" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="7" id="0cK-N7-e9e"/>
                             <constraint firstItem="Kvl-fM-CjD" firstAttribute="trailing" secondItem="y5V-vc-O8a" secondAttribute="trailing" type="default" id="6eb-q5-hma"/>
-                            <constraint firstItem="auR-3s-3Zf" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="230" id="HSL-uQ-QYm"/>
-                            <constraint firstItem="y5V-vc-O8a" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="106" id="Qch-rc-nW0"/>
+                            <constraint firstItem="WdU-E7-EDn" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="-9" id="Bj1-Qh-xKb"/>
+                            <constraint firstAttribute="trailing" secondItem="SZL-94-XdV" secondAttribute="trailing" constant="59" id="C1H-ok-6s4"/>
+                            <constraint firstAttribute="bottom" secondItem="dIh-rf-UoJ" secondAttribute="bottom" constant="188" id="CSq-Ae-HVp"/>
+                            <constraint firstItem="dIh-rf-UoJ" firstAttribute="leading" secondItem="Kvl-fM-CjD" secondAttribute="leading" type="default" id="F5d-Eu-Ug7"/>
+                            <constraint firstItem="WdU-E7-EDn" firstAttribute="trailing" secondItem="YVe-5i-dQL" secondAttribute="trailing" type="default" id="GFc-0Q-lUQ"/>
                             <constraint firstItem="Kvl-fM-CjD" firstAttribute="top" secondItem="y5V-vc-O8a" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="R0G-w3-jIU"/>
+                            <constraint firstAttribute="bottom" secondItem="auR-3s-3Zf" secondAttribute="bottom" constant="131" id="SRU-S4-xEY"/>
                             <constraint firstItem="y5V-vc-O8a" firstAttribute="leading" secondItem="Kvl-fM-CjD" secondAttribute="leading" type="default" id="TYe-I8-qmT"/>
+                            <constraint firstItem="YVe-5i-dQL" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="139" id="VGM-Dj-mC4"/>
                             <constraint firstItem="y5V-vc-O8a" firstAttribute="leading" secondItem="YVe-5i-dQL" secondAttribute="leading" type="default" id="Va8-tf-Uxv"/>
                             <constraint firstItem="SZL-94-XdV" firstAttribute="top" secondItem="dIh-rf-UoJ" secondAttribute="top" type="default" id="WDN-Fe-uvP"/>
-                            <constraint firstItem="dIh-rf-UoJ" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="81" id="ZS7-Dq-car"/>
                             <constraint firstItem="Fbf-MA-Pxb" firstAttribute="leading" secondItem="YVe-5i-dQL" secondAttribute="leading" type="default" id="a7G-hA-s2m"/>
-                            <constraint firstItem="Fbf-MA-Pxb" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="20" symbolic="YES" type="default" id="bRv-uz-OGQ"/>
                             <constraint firstItem="VUN-iG-gU3" firstAttribute="baseline" secondItem="YVe-5i-dQL" secondAttribute="baseline" type="default" id="br5-uK-HcT"/>
-                            <constraint firstItem="VUN-iG-gU3" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="11" id="ccA-Zt-G28"/>
+                            <constraint firstItem="y5V-vc-O8a" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="189" id="d2p-ts-SNX"/>
                             <constraint firstItem="YVe-5i-dQL" firstAttribute="trailing" secondItem="y5V-vc-O8a" secondAttribute="trailing" type="default" id="hgl-ZV-YdF"/>
                             <constraint firstItem="SZL-94-XdV" firstAttribute="bottom" secondItem="dIh-rf-UoJ" secondAttribute="bottom" type="default" id="nxp-vB-H4U"/>
-                            <constraint firstItem="Fbf-MA-Pxb" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="56" id="rV8-jT-XQf"/>
-                            <constraint firstItem="dIh-rf-UoJ" firstAttribute="baseline" secondItem="SZL-94-XdV" secondAttribute="baseline" type="default" id="uf8-ZG-3uI"/>
+                            <constraint firstItem="SZL-94-XdV" firstAttribute="baseline" secondItem="dIh-rf-UoJ" secondAttribute="baseline" type="default" id="tuw-hW-rEf"/>
+                            <constraint firstItem="Fbf-MA-Pxb" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="103" id="wbJ-rl-J3Z"/>
+                            <constraint firstItem="VUN-iG-gU3" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="6" id="wuD-sb-lT3"/>
+                            <constraint firstItem="auR-3s-3Zf" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="10" id="zZ9-2m-hOo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Fig-Qg-qap"/>
@@ -279,6 +289,33 @@
             <point key="canvasLocation" x="-473" y="370"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fuze_header_text.png" width="450" height="110"/>
+    </resources>
+    <classes>
+        <class className="FoldersTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FoldersTableViewController.h"/>
+        </class>
+        <class className="LAPTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPTableViewController.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logonButtonPressed:"/>
+                <relationship kind="action" name="resetButtonPressed:"/>
+                <relationship kind="outlet" name="logonButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="message" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="resetButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="urlHost" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
