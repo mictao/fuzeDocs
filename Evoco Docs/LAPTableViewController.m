@@ -16,7 +16,7 @@
     [super viewDidLoad];
     
     self.wtClient = [[WebTopClient alloc] init];
-    self.wtClient.clientUrl = @"http://biddernator.mypc/";
+    self.wtClient.clientUrl = @"http://biddernator.devtop.evoco.com/";
 }
 
 
