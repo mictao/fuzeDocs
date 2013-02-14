@@ -9,7 +9,7 @@
             <objects>
                 <tableViewController id="59e-n2-XzJ" customClass="LAPTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vEV-Yp-GEv">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -72,7 +72,7 @@
             <objects>
                 <tableViewController id="aRW-Tk-wem" customClass="FoldersTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8DX-IY-lGX">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -144,7 +144,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="Vwp-5B-55P" kind="push" id="qFA-q0-bZh"/>
+                        <segue destination="Vwp-5B-55P" kind="relationship" relationship="rootViewController" id="lbh-0r-po6"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHI-Ke-IHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -289,7 +289,7 @@
                         <outlet property="resetButton" destination="SZL-94-XdV" id="5gV-g2-C0Q"/>
                         <outlet property="urlHost" destination="YVe-5i-dQL" id="OrX-Jm-Xm8"/>
                         <outlet property="username" destination="y5V-vc-O8a" id="ZcY-Ok-Fs5"/>
-                        <segue destination="59e-n2-XzJ" kind="modal" identifier="LoginSucess" modalTransitionStyle="crossDissolve" id="S3E-kH-kKK"/>
+                        <segue destination="59e-n2-XzJ" kind="push" identifier="LoginSuccess" id="ux0-Th-xBR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wRV-rf-Xfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -304,6 +304,22 @@
         <class className="LAPTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPTableViewController.h"/>
         </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logonButtonPressed:"/>
+                <relationship kind="action" name="resetButtonPressed:"/>
+                <relationship kind="outlet" name="logonButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="message" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="resetButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="urlHost" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -311,6 +327,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="S3E-kH-kKK"/>
+        <segue reference="0lo-Tq-fqY"/>
+        <segue reference="ux0-Th-xBR"/>
     </inferredMetricsTieBreakers>
 </document>
