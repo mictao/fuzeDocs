@@ -235,11 +235,7 @@
             dest.folderID = folder.ID;
         }
     }
-    else if ([segue.identifier isEqualToString:@"LoginSuccess"])
-    {
-        //DocsTableViewController *source = segue.sourceViewController;
-        //DocsTableViewController *dest = segue.destinationViewController;
-    }}
+}
 
 
 - (void) setWebTopClient: (WebTopClient*) client
