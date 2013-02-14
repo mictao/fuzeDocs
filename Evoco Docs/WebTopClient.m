@@ -12,7 +12,7 @@
 
 - (NSString *) login:(NSString *)user password:(NSString *)pass
 {
-    NSString *urlString = [self.clientUrl stringByAppendingFormat: @"WebTop/Secured/VerifyLoginHandler.ashx?username=%@&password=%@&callback=*", user, pass];
+    NSString *urlString = [self.clientUrl stringByAppendingFormat: @"WebTop/Secured/VerifyLoginHandler.ashx?username=%@&password=%@&callback=*&DropDuplicateLogin=1", user, pass];
     
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
