@@ -13,5 +13,6 @@
 @property NSString *ID;
 @property NSString *Name;
 @property NSString *DisplaySize;
+@property NSString *UploadedBy;
 
 @end
