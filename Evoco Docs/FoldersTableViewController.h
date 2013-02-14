@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WebTopClient.h"
+
 
 @interface FoldersTableViewController : UITableViewController
 
 @property NSString *folderID;
+
+- (void) setWebTopClient:(WebTopClient *) client;
 
 @end

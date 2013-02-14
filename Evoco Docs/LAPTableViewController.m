@@ -190,6 +190,8 @@
         LAPTableViewController *source = segue.sourceViewController;
         LAPTableViewController *dest = segue.destinationViewController;
         
+        [dest setWebTopClient:self.wtClient];
+        
         dest.currentLevel = source.currentLevel + 1;
         SiteDTO *site = self.sites[self.tableView.indexPathForSelectedRow.row];
         dest.docSectionTitle = site.Name;
@@ -199,7 +201,9 @@
     {
         LAPTableViewController *source = segue.sourceViewController;
         FoldersTableViewController *dest = segue.destinationViewController;
-
+        
+        [dest setWebTopClient:self.wtClient];
+        
         NSString *assID;
         switch (source.currentLevel)
         {

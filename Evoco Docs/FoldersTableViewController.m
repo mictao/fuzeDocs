@@ -32,9 +32,7 @@
 {
     [super viewDidLoad];
     
-    self.wtClient = [[WebTopClient alloc] init];
-    self.wtClient.clientUrl = @"http://biddernator.devtop.evoco.com/";
-    
+   
     if (self.folderID)
     {
         self.folderContents = [self.wtClient getFolderContents:self.folderID withDeleted:NO withEmptyFolders:YES];
@@ -176,6 +174,11 @@
     dest.folderID = folder.ID;
     dest.title = folder.Name;
     
+}
+
+- (void) setWebTopClient:(WebTopClient *)client
+{
+    self.wtClient = client;
 }
 
 @end
