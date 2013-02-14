@@ -251,6 +251,8 @@
         FolderDTO *folder = [[FolderDTO alloc] init];
         folder.ID = [folderDic objectForKey:@"ID"];
         folder.Name = [tdic objectForKey:@"Name"];
+        folder.HasDocuments = [[folderDic objectForKey:@"HasDocuments"] boolValue];
+        folder.SubfolderCount = [[folderDic objectForKey:@"SubfolderCount"] integerValue];
         [results addObject:folder];
     }
 
