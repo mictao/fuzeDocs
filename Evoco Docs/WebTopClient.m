@@ -140,6 +140,8 @@
         //NSLog(@"JSON: %@", dic);
         
         NSDictionary *dic2 = [dic objectForKey:@"d"];
+        if ((NSNull *)dic2 == [NSNull null])
+            return nil;
         return dic2;
         
     }
@@ -169,7 +171,7 @@
 {
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys: @"", @"searchText", nil];
     NSDictionary *dic = [self makeServiceCall:self.umServiceUrl method:@"GetLocationsQuick" withArgs:args];
-        
+    
     NSArray *arr = [dic objectForKey:@"List"];
 
     NSMutableArray *sites = [[NSMutableArray alloc] init];
@@ -183,7 +185,7 @@
         site.State = [d objectForKey:@"StateCode"];
         [sites addObject:site];
     }
-    NSLog(@"sites: %@", sites);
+    //NSLog(@"sites: %@", sites);
     return sites;
 }
 
@@ -192,7 +194,7 @@
 {
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys: siteID, @"locationID", nil];
     NSDictionary *dic = [self makeServiceCall:self.umServiceUrl method:@"GetProjectsForLocation" withArgs:args];
-    
+
     NSArray *arr = [dic objectForKey:@"List"];
     
     NSMutableArray *projects = [[NSMutableArray alloc] init];
@@ -215,7 +217,10 @@
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys: assID, @"assID", nil];
     NSDictionary *dic = [self makeServiceCall:self.docsServiceUrl method:@"GetRootFolderForAssociation" withArgs:args];
     
-    NSLog(@"JSON: %@", dic);
+    //NSLog(@"JSON: %@", dic);
+    
+    if (!dic)
+        return nil;
     
     NSDictionary *tdic = [dic objectForKey:@"TemplateFolder"];
     
@@ -233,9 +238,7 @@
         includeEmptyFolders, @"includeEmptyFolders",
         nil];
     NSDictionary *dic = [self makeServiceCall:self.docsServiceUrl method:@"GetFolderContents" withArgs:args];
-    
-    
-    NSLog(@"JSON: %@", dic);
+    //NSLog(@"JSON: %@", dic);
     
     NSMutableArray *results = [[NSMutableArray alloc] init];
     

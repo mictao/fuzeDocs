@@ -213,14 +213,29 @@
                 assID = client.ClientID;
                 break;
             }
+            case 1:
+            {
+                //NSLog(@"%d", self.tableView.indexPathForSelectedRow.row);
+                
+                if (self.tableView.indexPathForSelectedRow.section == 0)
+                    assID = source.currentSiteID;
+                else
+                {
+                    ProjectDTO *project = self.projects[self.tableView.indexPathForSelectedRow.row];
+                    assID = project.ProjectID;
+                }
+                break;
+            }
         }
         
         
-        // the code below is not right
         
         //ProjectDTO *project = self.projects[self.tableView.indexPathForSelectedRow.row];
         FolderDTO *folder = [self.wtClient getRootFolderForAssociation:assID];
-        dest.folderID = folder.ID;
+        if (folder)
+        {
+            dest.folderID = folder.ID;
+        }
     }
     
 }

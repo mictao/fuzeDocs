@@ -35,8 +35,10 @@
     self.wtClient = [[WebTopClient alloc] init];
     self.wtClient.clientUrl = @"http://biddernator.mypc/";
     
-    self.folderContents = [self.wtClient getFolderContents:self.folderID withDeleted:NO withEmptyFolders:YES];
-    
+    if (self.folderID)
+    {
+        self.folderContents = [self.wtClient getFolderContents:self.folderID withDeleted:NO withEmptyFolders:YES];
+    }
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -60,12 +62,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.folderContents.count;
+    if (self.folderContents)
+        return self.folderContents.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = nil;
+    
+    if (!self.folderContents)
+    {
+        static NSString *CellIdentifier = @"DocumentCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        if (cell == nil)
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabel.text = @"No document set";
+        return cell;
+    }
     
     
     id item = self.folderContents[indexPath.row];
