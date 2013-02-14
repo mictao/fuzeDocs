@@ -255,6 +255,7 @@
         DocumentDTO *doc = [[DocumentDTO alloc] init];
         doc.ID = [docDic objectForKey:@"ID"];
         doc.Name = [docDic objectForKey:@"Name"];
+        doc.DisplaySize = [docDic objectForKey:@"DisplaySize"];
         [results addObject:doc];
     }
 

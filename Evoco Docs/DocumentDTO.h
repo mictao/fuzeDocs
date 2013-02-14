@@ -12,5 +12,6 @@
 
 @property NSString *ID;
 @property NSString *Name;
+@property NSString *DisplaySize;
 
 @end

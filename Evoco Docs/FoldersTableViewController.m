@@ -65,26 +65,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"FolderCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
+    UITableViewCell *cell = nil;
     
     
     id item = self.folderContents[indexPath.row];
     
     if ([item isKindOfClass:[FolderDTO class]])
     {
+        static NSString *CellIdentifier = @"FolderCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        if (cell == nil)
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         FolderDTO *folder = (FolderDTO *)item;
         cell.textLabel.text = folder.Name;
     }
     else if ([item isKindOfClass:[DocumentDTO class]])
     {
+        static NSString *CellIdentifier = @"DocumentCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        if (cell == nil)
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         DocumentDTO *doc = (DocumentDTO *)item;
         cell.textLabel.text = doc.Name;
+        cell.detailTextLabel.text = doc.DisplaySize;
     }
     
     
