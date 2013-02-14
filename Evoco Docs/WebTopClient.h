@@ -5,6 +5,7 @@
 
 @property NSString *clientUrl;
 @property NSString *umServiceUrl;
+@property NSString *docsServiceUrl;
 
 - (void) login:(NSString *)user password:(NSString *)pass;
 

@@ -8,6 +8,7 @@
 {
     //self.clientUrl = @"http://docs.preview.myevoco.com/";
     self.umServiceUrl = @"UserManagement/Services/UserServices.svc";
+    self.docsServiceUrl = @"Documents/Serices/DocumentsService.svc";
     
     return [super init];
 }
@@ -96,9 +97,10 @@
 }
 
 
-- (NSDictionary *) makeServiceCall:(NSString *)serviceFunction withArgs:(NSDictionary *)args
+
+- (NSDictionary *) makeServiceCall:(NSString *)serviceUrl method:(NSString *)serviceFunction withArgs:(NSDictionary *)args
 {
-    NSString *urlString = [self.clientUrl stringByAppendingFormat: @"%@/%@", self.umServiceUrl, serviceFunction];
+    NSString *urlString = [self.clientUrl stringByAppendingFormat: @"%@/%@", serviceUrl, serviceFunction];
     NSError *error = nil;
     NSData *reqData = [NSJSONSerialization dataWithJSONObject:args options:kNilOptions error:&error];
     NSString* postDataLengthString = [[NSString alloc] initWithFormat:@"%d", reqData.length];
@@ -142,7 +144,7 @@
 - (NSArray *) getSites
 {
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys: @"", @"searchText", nil];
-    NSDictionary *dic = [self makeServiceCall:@"GetLocationsQuick" withArgs:args];
+    NSDictionary *dic = [self makeServiceCall:self.umServiceUrl method:@"GetLocationsQuick" withArgs:args];
         
     NSArray *arr = [dic objectForKey:@"List"];
 
@@ -165,7 +167,7 @@
 - (NSArray *) getProjectsForSite:(NSString *)siteID
 {
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys: siteID, @"locationID", nil];
-    NSDictionary *dic = [self makeServiceCall:@"GetProjectsForLocation" withArgs:args];
+    NSDictionary *dic = [self makeServiceCall:self.umServiceUrl method:@"GetProjectsForLocation" withArgs:args];
     
     NSArray *arr = [dic objectForKey:@"List"];
     
@@ -185,7 +187,27 @@
 
 - (FolderDTO *) getRootFolderForAssociation:(NSString *) assID;
 {
+    NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys: assID, @"assID", nil];
+    NSDictionary *dic = [self makeServiceCall:self.docsServiceUrl method:@"GetRootFolderForAssociation" withArgs:args];
+    
+    NSLog(@"JSON: %@", dic);
+    
+    
+    /*NSArray *arr = [dic objectForKey:@"List"];
+    
+    NSMutableArray *projects = [[NSMutableArray alloc] init];
+    for (NSDictionary *d in arr)
+    {
+        ProjectDTO *project = [[ProjectDTO alloc] init];
+        project.ProjectID = [d objectForKey:@"ProjectID"];
+        project.Name = [d objectForKey:@"Name"];
+        [projects addObject:project];
+    }
+    NSLog(@"projects: %@", projects);
+    return projects;
+     */
     return nil;
+
 }
 
 - (NSArray *) getFolderContents:(NSString *)parentFolderID withDeleted:(BOOL)includeDeleted withEmptyFolders:(BOOL)includeEmptyFolders;
