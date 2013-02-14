@@ -9,9 +9,11 @@
 #import "FoldersTableViewController.h"
 #import "WebTopClient.h"
 #import "FolderDTO.h"
+#import "DocumentDTO.h"
 
 @interface FoldersTableViewController ()
 @property WebTopClient *wtClient;
+@property NSArray *folderContents;
 @end
 
 @implementation FoldersTableViewController
@@ -33,7 +35,7 @@
     self.wtClient = [[WebTopClient alloc] init];
     self.wtClient.clientUrl = @"http://biddernator.mypc/";
     
-    NSArray *arr = [self.wtClient getFolderContents:self.folderID withDeleted:NO withEmptyFolders:YES];
+    self.folderContents = [self.wtClient getFolderContents:self.folderID withDeleted:NO withEmptyFolders:YES];
     
 
     // Uncomment the following line to preserve selection between presentations.
@@ -58,19 +60,36 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 55;
+    return self.folderContents.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"FolderCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (cell == nil)
+    UITableViewCell *cell = nil;
+    
+    
+    id item = self.folderContents[indexPath.row];
+    
+    if ([item isKindOfClass:[FolderDTO class]])
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        static NSString *CellIdentifier = @"FolderCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        if (cell == nil)
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        FolderDTO *folder = (FolderDTO *)item;
+        cell.textLabel.text = folder.Name;
+    }
+    else if ([item isKindOfClass:[DocumentDTO class]])
+    {
+        static NSString *CellIdentifier = @"DocumentCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        if (cell == nil)
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        DocumentDTO *doc = (DocumentDTO *)item;
+        cell.textLabel.text = doc.Name;
+        cell.detailTextLabel.text = doc.DisplaySize;
     }
     
-    cell.textLabel.text = @"Folder name";
     
     return cell;
 }

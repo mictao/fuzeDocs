@@ -10,7 +10,8 @@
 
 @interface DocumentDTO : NSObject
 
-@property NSString *DocumentID;
-@property NSString *DocumentName;
+@property NSString *ID;
+@property NSString *Name;
+@property NSString *DisplaySize;
 
 @end
