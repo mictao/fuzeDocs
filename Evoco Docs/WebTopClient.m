@@ -259,6 +259,7 @@
         doc.ID = [docDic objectForKey:@"ID"];
         doc.Name = [docDic objectForKey:@"Name"];
         doc.DisplaySize = [docDic objectForKey:@"DisplaySize"];
+        doc.UploadedBy = [docDic objectForKey:@"UploadedBy"];
         [results addObject:doc];
     }
 

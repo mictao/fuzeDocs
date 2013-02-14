@@ -101,7 +101,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         DocumentDTO *doc = (DocumentDTO *)item;
         cell.textLabel.text = doc.Name;
-        cell.detailTextLabel.text = doc.DisplaySize;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", doc.DisplaySize, doc.UploadedBy];
     }
     
     
@@ -169,11 +169,12 @@
     NSLog(@"Destination Controller = %@", [segue destinationViewController]);
     NSLog(@"Segue Identifier = %@", [segue identifier]);
     
-    FoldersTableViewController *source = segue.sourceViewController;
+   //FoldersTableViewController *source = segue.sourceViewController;
     FoldersTableViewController *dest = segue.destinationViewController;
     
     FolderDTO *folder = self.folderContents[self.tableView.indexPathForSelectedRow.row];
     dest.folderID = folder.ID;
+    dest.title = folder.Name;
     
 }
 

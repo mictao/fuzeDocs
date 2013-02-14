@@ -211,26 +211,28 @@
             {
                 ClientDTO *client = [self.wtClient getCurrentClient];
                 assID = client.ClientID;
+                dest.title = client.Name;
                 break;
             }
             case 1:
             {
-                //NSLog(@"%d", self.tableView.indexPathForSelectedRow.row);
-                
                 if (self.tableView.indexPathForSelectedRow.section == 0)
+                {
                     assID = source.currentSiteID;
+                    dest.title = self.docSectionTitle;
+                }
                 else
                 {
                     ProjectDTO *project = self.projects[self.tableView.indexPathForSelectedRow.row];
                     assID = project.ProjectID;
+                    dest.title = project.Name;
                 }
                 break;
             }
         }
         
         
-        
-        //ProjectDTO *project = self.projects[self.tableView.indexPathForSelectedRow.row];
+       
         FolderDTO *folder = [self.wtClient getRootFolderForAssociation:assID];
         if (folder)
         {
