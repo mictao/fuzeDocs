@@ -85,6 +85,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="logonButtonPressed:" destination="xmZ-ff-Axt" eventType="touchUpInside" id="8ao-Ov-Ssl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sv-S1-JHW">
                                 <constraints>
@@ -98,6 +101,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="xmZ-ff-Axt" eventType="touchUpInside" id="ou5-Wo-Ohz"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="email address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vWB-lh-Xey">
                                 <constraints>
@@ -176,7 +182,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="PY1-dD-3Ve" kind="modal" id="lsb-68-jo9"/>
+                        <outlet property="logonButton" destination="fSE-oC-S93" id="Mxe-l8-ANF"/>
+                        <outlet property="message" destination="7kx-Sk-TDY" id="4fh-P4-cVg"/>
+                        <outlet property="password" destination="Bu7-Jy-wuG" id="IR8-Dj-EQd"/>
+                        <outlet property="resetButton" destination="1sv-S1-JHW" id="q26-Xp-UEe"/>
+                        <outlet property="urlHost" destination="hea-p2-7DP" id="npn-sp-RcB"/>
+                        <outlet property="username" destination="vWB-lh-Xey" id="abX-fN-p0E"/>
+                        <segue destination="PY1-dD-3Ve" kind="push" identifier="LoginSuccess" splitViewControllerTargetIndex="1" id="lsb-68-jo9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="un4-EE-EMe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -210,7 +222,6 @@
                 <relationship kind="outlet" name="resetButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="urlHost" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="username" candidateClass="UITextField"/>
-                <relationship kind="outletCollection" name="urlHost" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

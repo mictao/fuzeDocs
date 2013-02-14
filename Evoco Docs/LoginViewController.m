@@ -63,7 +63,7 @@
     
     if (result != nil)
     {
-        _message.text = result;
+        self.message.text = result;
     }
     else
     {
@@ -77,10 +77,13 @@
 }
     
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[LAPTableViewController class]])
     {
         LAPTableViewController *dest = segue.destinationViewController;
         [dest setWebTopClient: self.wtClient];
     }
+}
 
 - (IBAction)resetButtonPressed:(id)sender
 {
