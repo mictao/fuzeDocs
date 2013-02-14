@@ -51,7 +51,7 @@
 
 - (IBAction)logonButtonPressed:(id)sender
 {
-    self.wtClient.clientUrl = [NSString stringWithFormat:@"http://%@%@/",self.urlHost.text, self.domain.text];
+    self.wtClient.clientUrl = [NSString stringWithFormat:@"http://%@",self.urlHost.text];
     NSString *result = [self.wtClient login: self.username.text password: self.password.text];
     
     if (result != nil)

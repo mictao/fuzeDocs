@@ -1,6 +1,9 @@
 #import <Foundation/Foundation.h>
 #import "ClientDTO.h"
+#import "SiteDTO.h"
+#import "ProjectDTO.h"
 #import "FolderDTO.h"
+#import "DocumentDTO.h"
 
 @interface WebTopClient : NSObject
 

@@ -1,9 +1,4 @@
 #import "WebTopClient.h"
-#import "ClientDTO.h"
-#import "SiteDTO.h"
-#import "ProjectDTO.h"
-#import "FolderDTO.h"
-#import "DocumentDTO.h"
 
 @implementation WebTopClient
 

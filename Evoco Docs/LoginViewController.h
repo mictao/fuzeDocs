@@ -16,7 +16,6 @@
 @property (nonatomic, strong) IBOutlet UIButton *resetButton;
 
 @property (nonatomic, strong) IBOutlet UITextField *urlHost;
-@property (nonatomic, strong) IBOutlet UILabel *domain;
 
 @property (nonatomic, strong) IBOutlet UITextField *password;
 @property (nonatomic, strong) IBOutlet UITextField *username;
