@@ -13,6 +13,7 @@
 @interface LoginViewController ()
 
 @property WebTopClient *wtClient;
+@property NSUserDefaults *prefs;
 
 @end
 
@@ -34,13 +35,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.prefs = [NSUserDefaults standardUserDefaults];
+    
     self.username.delegate = self;
     self.password.delegate = self;
     self.message.text = nil;
-    self.username.text = nil;
+    self.username.text = [self.prefs objectForKey:@"username"];
+    self.urlHost.text = [self.prefs objectForKey:@"urlHost"];
     self.password.text = nil;
     
     self.wtClient = [[WebTopClient alloc] init];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,13 +59,18 @@
     self.wtClient.clientUrl = [NSString stringWithFormat:@"http://%@/",self.urlHost.text];
     NSString *result = [self.wtClient login: self.username.text password: self.password.text];
     
+    [self.view endEditing:YES];
+    
     if (result != nil)
     {
         _message.text = result;
-        [self.view endEditing:YES];
     }
     else
     {
+        [self.prefs setValue:self.username.text forKey:@"username"];
+        [self.prefs setValue:self.urlHost.text forKey:@"urlHost"];
+        [self.prefs synchronize];
+        
         [self performSegueWithIdentifier:@"LoginSuccess" sender:self];
     }
 
