@@ -45,8 +45,26 @@
     self.password.text = nil;
     
     self.wtClient = [[WebTopClient alloc] init];
-
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 }
+
+- (void) dismissKeyboard
+{
+    [self.view endEditing:YES];
+}
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
