@@ -240,36 +240,37 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="left" image="fuze_header_text.png" translatesAutoresizingMaskIntoConstraints="NO" id="WdU-E7-EDn">
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="fuze_header_text.png" translatesAutoresizingMaskIntoConstraints="NO" id="WdU-E7-EDn">
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="78" id="RsX-kD-aJk"/>
-                                    <constraint firstAttribute="width" constant="295" id="u0c-lS-3GW"/>
+                                    <constraint firstAttribute="width" constant="311" id="Xvk-P9-ejq"/>
+                                    <constraint firstAttribute="height" constant="111" id="qXe-5d-KPr"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WdU-E7-EDn" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="7" id="0cK-N7-e9e"/>
                             <constraint firstItem="Kvl-fM-CjD" firstAttribute="trailing" secondItem="y5V-vc-O8a" secondAttribute="trailing" type="default" id="6eb-q5-hma"/>
-                            <constraint firstItem="WdU-E7-EDn" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="-9" id="Bj1-Qh-xKb"/>
-                            <constraint firstAttribute="trailing" secondItem="SZL-94-XdV" secondAttribute="trailing" constant="59" id="C1H-ok-6s4"/>
+                            <constraint firstItem="WdU-E7-EDn" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="-6" id="BqF-jZ-yle"/>
                             <constraint firstAttribute="bottom" secondItem="dIh-rf-UoJ" secondAttribute="bottom" constant="188" id="CSq-Ae-HVp"/>
                             <constraint firstItem="dIh-rf-UoJ" firstAttribute="leading" secondItem="Kvl-fM-CjD" secondAttribute="leading" type="default" id="F5d-Eu-Ug7"/>
-                            <constraint firstItem="WdU-E7-EDn" firstAttribute="trailing" secondItem="YVe-5i-dQL" secondAttribute="trailing" type="default" id="GFc-0Q-lUQ"/>
+                            <constraint firstItem="auR-3s-3Zf" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="10" id="JDi-0r-FtZ"/>
+                            <constraint firstItem="WdU-E7-EDn" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="3" id="L5p-Gx-fgw"/>
                             <constraint firstItem="Kvl-fM-CjD" firstAttribute="top" secondItem="y5V-vc-O8a" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="R0G-w3-jIU"/>
                             <constraint firstAttribute="bottom" secondItem="auR-3s-3Zf" secondAttribute="bottom" constant="131" id="SRU-S4-xEY"/>
                             <constraint firstItem="y5V-vc-O8a" firstAttribute="leading" secondItem="Kvl-fM-CjD" secondAttribute="leading" type="default" id="TYe-I8-qmT"/>
                             <constraint firstItem="YVe-5i-dQL" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="139" id="VGM-Dj-mC4"/>
                             <constraint firstItem="y5V-vc-O8a" firstAttribute="leading" secondItem="YVe-5i-dQL" secondAttribute="leading" type="default" id="Va8-tf-Uxv"/>
                             <constraint firstItem="SZL-94-XdV" firstAttribute="top" secondItem="dIh-rf-UoJ" secondAttribute="top" type="default" id="WDN-Fe-uvP"/>
+                            <constraint firstAttribute="trailing" secondItem="SZL-94-XdV" secondAttribute="trailing" constant="59" id="YiQ-Ce-boa"/>
                             <constraint firstItem="Fbf-MA-Pxb" firstAttribute="leading" secondItem="YVe-5i-dQL" secondAttribute="leading" type="default" id="a7G-hA-s2m"/>
                             <constraint firstItem="VUN-iG-gU3" firstAttribute="baseline" secondItem="YVe-5i-dQL" secondAttribute="baseline" type="default" id="br5-uK-HcT"/>
                             <constraint firstItem="y5V-vc-O8a" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="189" id="d2p-ts-SNX"/>
                             <constraint firstItem="YVe-5i-dQL" firstAttribute="trailing" secondItem="y5V-vc-O8a" secondAttribute="trailing" type="default" id="hgl-ZV-YdF"/>
+                            <constraint firstItem="Fbf-MA-Pxb" firstAttribute="trailing" secondItem="WdU-E7-EDn" secondAttribute="trailing" type="default" id="lER-5q-JIW"/>
                             <constraint firstItem="SZL-94-XdV" firstAttribute="bottom" secondItem="dIh-rf-UoJ" secondAttribute="bottom" type="default" id="nxp-vB-H4U"/>
+                            <constraint firstItem="VUN-iG-gU3" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="6" id="tvc-W3-UKA"/>
                             <constraint firstItem="Fbf-MA-Pxb" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="103" id="wbJ-rl-J3Z"/>
-                            <constraint firstItem="VUN-iG-gU3" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="6" id="wuD-sb-lT3"/>
-                            <constraint firstItem="auR-3s-3Zf" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="10" id="zZ9-2m-hOo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Fig-Qg-qap"/>
@@ -289,7 +290,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="fuze_header_text.png" width="450" height="110"/>
+        <image name="fuze_header_text.png" width="150" height="29"/>
     </resources>
     <classes>
         <class className="FoldersTableViewController" superclassName="UITableViewController">
