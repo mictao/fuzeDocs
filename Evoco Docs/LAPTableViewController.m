@@ -32,14 +32,6 @@
 }
 
 
-- (void) viewWillAppear:(BOOL)animated
-{
-    //NSLog(@"viewWillAppear level:%d", self.currentLevel);
-    
-    
-}
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
