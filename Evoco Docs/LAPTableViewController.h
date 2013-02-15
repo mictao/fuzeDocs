@@ -3,8 +3,6 @@
 
 @interface LAPTableViewController : UITableViewController
 
-@property WebTopClient *wtClient;
-
 @property NSInteger currentLevel;
 @property NSString *currentSiteID;
 @property NSString *currentProjectID;

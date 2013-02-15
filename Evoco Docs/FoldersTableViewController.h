@@ -18,7 +18,6 @@
 
 
 @property NSString *folderID;
-@property WebTopClient *wtClient;
 
 @property (nonatomic, retain) UIDocumentInteractionController *docInteractionController;
 

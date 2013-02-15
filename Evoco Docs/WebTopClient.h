@@ -5,15 +5,17 @@
 #import "FolderDTO.h"
 #import "DocumentDTO.h"
 
+
+
+
 @interface WebTopClient : NSObject
 
 @property NSString *clientUrl;
-@property NSString *umServiceUrl;
-@property NSString *docsServiceUrl;
+
++ (WebTopClient *)instance;
+
 
 - (NSString *) login:(NSString *)user password:(NSString *)pass;
-
-- (void) setClientUrl:(NSString *)clientUrl;
 
 - (ClientDTO *) getCurrentClient;
 - (NSArray *) getSites;

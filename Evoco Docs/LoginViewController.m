@@ -35,6 +35,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    
+    self.wtClient = [WebTopClient instance];
     self.prefs = [NSUserDefaults standardUserDefaults];
     
     self.username.delegate = self;
@@ -43,8 +45,6 @@
     self.username.text = [self.prefs objectForKey:@"username"];
     self.urlHost.text = [self.prefs objectForKey:@"urlHost"];
     self.password.text = nil;
-    
-    self.wtClient = [[WebTopClient alloc] init];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -74,7 +74,8 @@
 
 - (IBAction)logonButtonPressed:(id)sender
 {
-    self.wtClient.clientUrl = [NSString stringWithFormat:@"http://%@/",self.urlHost.text];
+
+    [self.wtClient setClientUrl: [NSString stringWithFormat:@"http://%@/",self.urlHost.text]];
     NSString *result = [self.wtClient login: self.username.text password: self.password.text];
     
     [self.view endEditing:YES];
@@ -92,15 +93,6 @@
         [self performSegueWithIdentifier:@"LoginSuccess" sender:self];
     }
 
-}
-    
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.destinationViewController isKindOfClass:[LAPTableViewController class]])
-    {
-        LAPTableViewController *dest = segue.destinationViewController;
-        dest.wtClient = self.wtClient;
-    }
 }
 
 - (IBAction)resetButtonPressed:(id)sender

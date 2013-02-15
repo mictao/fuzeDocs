@@ -1,13 +1,37 @@
 #import "WebTopClient.h"
 
+@interface WebTopClient ()
+
+@property NSString *umServiceUrl;
+@property NSString *docsServiceUrl;
+
+@end
+
 @implementation WebTopClient
 
-- (id)init
+
+
++ (WebTopClient *)instance
 {
-    self.umServiceUrl = @"UserManagement/Services/UserServices.svc";
-    self.docsServiceUrl = @"Documents/Services/DocumentsService.svc";
+    static WebTopClient *instance = nil;
     
-    return [super init];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^(void){
+        instance = [[WebTopClient alloc] initInstance];
+    });
+    return instance;
+}
+
+
+- (id)initInstance {
+    if (self = [super init])
+    {
+        self.umServiceUrl = @"UserManagement/Services/UserServices.svc";
+        self.docsServiceUrl = @"Documents/Services/DocumentsService.svc";
+        self.clientUrl = @"example.myevoco.com";
+    }
+    
+    return self;
 }
 
 - (NSString *) login:(NSString *)user password:(NSString *)pass
@@ -60,10 +84,12 @@
         NSLog(@"Error: %@", error);
         return [NSString stringWithFormat:@"Error: %@",error];
     }
+    else {
+        return [error localizedDescription];
+    }
     
     return @"Internal Error";
 }
-
 
 - (void) setAuthCookie:(NSString *)authCookieValue
 {
@@ -91,7 +117,6 @@
 
 }
 
-
 - (NSString *) fixLoginResultJSON:(NSString *)json
 {
     NSString *result = [json substringWithRange:NSMakeRange(2, json.length - 4)];
@@ -101,8 +126,6 @@
     //NSLog(@"%@", result);
     return result;
 }
-
-
 
 - (NSDictionary *) makeServiceCall:(NSString *)serviceUrl method:(NSString *)serviceFunction withArgs:(NSDictionary *)args
 {
@@ -159,10 +182,9 @@
     
 }
 
-
 - (NSData *) downloadFile:(NSString *)urlString
 {
-    NSURL *url = [NSURL URLWithString:urlString];
+    NSURL *url = [NSURL URLWithString:[self.clientUrl stringByAppendingString:urlString]];
     NSLog(@"%@", url);
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
     
@@ -189,9 +211,6 @@
     }
 }
 
-
-
-
 - (ClientDTO *) getCurrentClient
 {
     NSDictionary *dic = [self makeServiceCall:self.umServiceUrl method:@"GetCurrentClient" withArgs:nil];
@@ -203,7 +222,6 @@
     client.Url = [dic objectForKey:@"Url"];
     return client;
 }
-
 
 - (NSArray *) getSites
 {
@@ -227,7 +245,6 @@
     return sites;
 }
 
-
 - (NSArray *) getProjectsForSite:(NSString *)siteID
 {
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys: siteID, @"locationID", nil];
@@ -246,8 +263,6 @@
     NSLog(@"projects: %@", projects);
     return projects;
 }
-
-
 
 - (FolderDTO *) getRootFolderForAssociation:(NSString *) assID;
 {
@@ -305,8 +320,6 @@
 
     return results;
 }
-
-
 
 
 /*

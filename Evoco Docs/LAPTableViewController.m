@@ -7,7 +7,7 @@
 
 @interface LAPTableViewController ()
 
-    
+    @property WebTopClient *wtClient;
 
 @end
 
@@ -17,6 +17,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.wtClient = [WebTopClient instance];
 }
 
 
@@ -88,7 +89,7 @@
         case 0:
             switch (self.currentLevel) {
                 case 0:
-                    return self.wtClient.clientUrl;
+                    return @"get the name";
                 case 1:
                     return self.docSectionTitle;
             }
@@ -189,9 +190,7 @@
     {
         LAPTableViewController *source = segue.sourceViewController;
         LAPTableViewController *dest = segue.destinationViewController;
-        
-        dest.wtClient = self.wtClient;
-        
+                
         dest.currentLevel = source.currentLevel + 1;
         SiteDTO *site = self.sites[self.tableView.indexPathForSelectedRow.row];
         dest.docSectionTitle = site.Name;
@@ -202,7 +201,6 @@
         LAPTableViewController *source = segue.sourceViewController;
         FoldersTableViewController *dest = segue.destinationViewController;
         
-        dest.wtClient = self.wtClient;
         
         NSString *assID;
         switch (source.currentLevel)

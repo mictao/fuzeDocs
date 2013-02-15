@@ -12,8 +12,11 @@
 #import "DocumentDTO.h"
 
 @interface FoldersTableViewController ()
-@property NSArray *folderContents;
-@property NSString *currentPreviewFilePath;
+
+	@property NSArray *folderContents;
+	@property NSString *currentPreviewFilePath;
+	@property WebTopClient *wtClient;
+
 @end
 
 @implementation FoldersTableViewController
@@ -31,8 +34,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
    
+	self.wtClient = [WebTopClient instance];
     if (self.folderID)
     {
         self.folderContents = [self.wtClient getFolderContents:self.folderID withDeleted:NO withEmptyFolders:YES];
@@ -151,8 +154,8 @@
     if ([item isKindOfClass:[DocumentDTO class]])
     {
 		DocumentDTO *doc = (DocumentDTO *)item;
-        NSString *downloadUrl = [self.wtClient.clientUrl stringByAppendingFormat: @"UserManagement/Application/Viewers/FileHandler.ashx?download=true&docID=%@", doc.ID];
-        NSData *docData = [self.wtClient downloadFile:downloadUrl];
+        NSString *downloadUrl = [NSString stringWithFormat: @"UserManagement/Application/Viewers/FileHandler.ashx?download=true&docID=%@", doc.ID];
+        NSData *docData = [[WebTopClient instance] downloadFile:downloadUrl];
 		
         self.currentPreviewFilePath = [NSString pathWithComponents: [NSArray arrayWithObjects: NSHomeDirectory(), @"Documents", doc.Name, nil]];
         NSLog(@"%@", self.currentPreviewFilePath);
@@ -197,11 +200,10 @@
     //NSLog(@"Destination Controller = %@", [segue destinationViewController]);
     //NSLog(@"Segue Identifier = %@", [segue identifier]);
     
-    FoldersTableViewController *source = segue.sourceViewController;
+    //FoldersTableViewController *source = segue.sourceViewController;
     FoldersTableViewController *dest = segue.destinationViewController;
     
     FolderDTO *folder = self.folderContents[self.tableView.indexPathForSelectedRow.row];
-    dest.wtClient = source.wtClient;
     dest.folderID = folder.ID;
     dest.title = folder.Name;
     
