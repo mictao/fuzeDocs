@@ -12,8 +12,8 @@
 #import "DocumentDTO.h"
 
 @interface FoldersTableViewController ()
-
 @property NSArray *folderContents;
+@property NSString *currentPreviewFilePath;
 @end
 
 @implementation FoldersTableViewController
@@ -101,8 +101,6 @@
         cell.textLabel.text = doc.Name;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", doc.DisplaySize, doc.UploadedBy];
     }
-    
-    
     return cell;
 }
 
@@ -149,6 +147,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    id item = self.folderContents[indexPath.row];
+    if ([item isKindOfClass:[DocumentDTO class]])
+    {
+		DocumentDTO *doc = (DocumentDTO *)item;
+        NSString *downloadUrl = [self.wtClient.clientUrl stringByAppendingFormat: @"UserManagement/Application/Viewers/FileHandler.ashx?download=true&docID=%@", doc.ID];
+        NSData *docData = [self.wtClient downloadFile:downloadUrl];
+		
+        self.currentPreviewFilePath = [NSString pathWithComponents: [NSArray arrayWithObjects: NSHomeDirectory(), @"Documents", doc.Name, nil]];
+        NSLog(@"%@", self.currentPreviewFilePath);
+		[docData writeToFile:self.currentPreviewFilePath atomically:YES];
+		
+		[self openQLPreviewController];
+	}
+
+    
+    
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -158,14 +172,30 @@
      */
 }
 
+- (void)openQLPreviewController;
+{
+	// When user taps a row, create the preview controller
+	QLPreviewController *previewer = [[QLPreviewController alloc] init];
+	
+	// Set data source
+	previewer.dataSource = self;
+	//[previewer setTitle:@"PDF Title"];
+	
+	// Which item to preview
+	previewer.currentPreviewItemIndex = 0;
+	
+	
+	[[self navigationController] pushViewController:previewer animated:YES];
+}
+
 
 
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"Source Controller = %@", [segue sourceViewController]);
-    NSLog(@"Destination Controller = %@", [segue destinationViewController]);
-    NSLog(@"Segue Identifier = %@", [segue identifier]);
+    //NSLog(@"Source Controller = %@", [segue sourceViewController]);
+    //NSLog(@"Destination Controller = %@", [segue destinationViewController]);
+    //NSLog(@"Segue Identifier = %@", [segue identifier]);
     
     FoldersTableViewController *source = segue.sourceViewController;
     FoldersTableViewController *dest = segue.destinationViewController;
@@ -175,6 +205,31 @@
     dest.folderID = folder.ID;
     dest.title = folder.Name;
     
+}
+
+
+
+
+
+
+#pragma mark -
+#pragma mark QLPreviewControllerDataSource
+
+// Returns the number of items that the preview controller should preview
+- (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)previewController
+{
+    return 1;
+}
+
+- (void)previewControllerDidDismiss:(QLPreviewController *)controller
+{
+    // if the preview dismissed (done button touched), use this method to post-process previews
+}
+
+// returns the item that the preview controller should preview
+- (id)previewController:(QLPreviewController *)previewController previewItemAtIndex:(NSInteger)idx
+{
+	return [NSURL fileURLWithPath:self.currentPreviewFilePath];
 }
 
 

@@ -11,6 +11,7 @@
 		1419E7AB16CCB28A00A413FC /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1419E7A916CCB28A00A413FC /* iphone.png */; };
 		1419E7AC16CCB28A00A413FC /* iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1419E7AA16CCB28A00A413FC /* iphone@2x.png */; };
 		1422903816CDA8C6002488D2 /* fuze_header_text.png in Resources */ = {isa = PBXBuildFile; fileRef = 1422903716CDA8C6002488D2 /* fuze_header_text.png */; };
+		1422903A16CE0FAD002488D2 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1422903916CE0FAD002488D2 /* QuickLook.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		14382FE216CC32CB0062C71E /* SiteDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 14382FE116CC32CB0062C71E /* SiteDTO.m */; };
 		14382FE516CC52070062C71E /* ProjectDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 14382FE416CC52070062C71E /* ProjectDTO.m */; };
 		147111A216CAC2FD007840D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147111A116CAC2FD007840D4 /* UIKit.framework */; };
@@ -35,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		140161EA16CC678B0071AB98 /* FoldersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoldersTableViewController.h; sourceTree = "<group>"; };
-		140161EB16CC678B0071AB98 /* FoldersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoldersTableViewController.m; sourceTree = "<group>"; };
+		140161EB16CC678B0071AB98 /* FoldersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoldersTableViewController.m; sourceTree = "<group>"; usesTabs = 1; };
 		1419E7A916CCB28A00A413FC /* iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone.png; sourceTree = "<group>"; };
 		1419E7AA16CCB28A00A413FC /* iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone@2x.png"; sourceTree = "<group>"; };
 		1419E7AD16CD475E00A413FC /* FolderDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderDTO.h; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		1422903416CD657A002488D2 /* DocumentDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentDTO.h; sourceTree = "<group>"; };
 		1422903516CD657A002488D2 /* DocumentDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentDTO.m; sourceTree = "<group>"; };
 		1422903716CDA8C6002488D2 /* fuze_header_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fuze_header_text.png; path = "Evoco Docs/fuze_header_text.png"; sourceTree = SOURCE_ROOT; };
+		1422903916CE0FAD002488D2 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		14382FE016CC32CB0062C71E /* SiteDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteDTO.h; sourceTree = "<group>"; };
 		14382FE116CC32CB0062C71E /* SiteDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteDTO.m; sourceTree = "<group>"; };
 		14382FE316CC52070062C71E /* ProjectDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDTO.h; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1422903A16CE0FAD002488D2 /* QuickLook.framework in Frameworks */,
 				147111A216CAC2FD007840D4 /* UIKit.framework in Frameworks */,
 				147111A416CAC2FD007840D4 /* Foundation.framework in Frameworks */,
 				147111A616CAC2FD007840D4 /* CoreGraphics.framework in Frameworks */,
@@ -125,12 +128,14 @@
 		147111A016CAC2FD007840D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1422903916CE0FAD002488D2 /* QuickLook.framework */,
 				147111A116CAC2FD007840D4 /* UIKit.framework */,
 				147111A316CAC2FD007840D4 /* Foundation.framework */,
 				147111A516CAC2FD007840D4 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		147111A716CAC2FD007840D4 /* Evoco Docs */ = {
 			isa = PBXGroup;
