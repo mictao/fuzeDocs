@@ -45,7 +45,7 @@
 		1422903216CD5723002488D2 /* ClientDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientDTO.m; sourceTree = "<group>"; };
 		1422903416CD657A002488D2 /* DocumentDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentDTO.h; sourceTree = "<group>"; };
 		1422903516CD657A002488D2 /* DocumentDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentDTO.m; sourceTree = "<group>"; };
-		1422903716CDA8C6002488D2 /* fuze_header_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fuze_header_text.png; path = ../../../../Downloads/fuze_header_text.png; sourceTree = "<group>"; };
+		1422903716CDA8C6002488D2 /* fuze_header_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fuze_header_text.png; path = "Evoco Docs/fuze_header_text.png"; sourceTree = SOURCE_ROOT; };
 		1422903916CE0FAD002488D2 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		14382FE016CC32CB0062C71E /* SiteDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteDTO.h; sourceTree = "<group>"; };
 		14382FE116CC32CB0062C71E /* SiteDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteDTO.m; sourceTree = "<group>"; };
