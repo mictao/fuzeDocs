@@ -12,7 +12,7 @@
 #import "DocumentDTO.h"
 
 @interface FoldersTableViewController ()
-@property WebTopClient *wtClient;
+
 @property NSArray *folderContents;
 @end
 
@@ -167,18 +167,16 @@
     NSLog(@"Destination Controller = %@", [segue destinationViewController]);
     NSLog(@"Segue Identifier = %@", [segue identifier]);
     
-   //FoldersTableViewController *source = segue.sourceViewController;
+    FoldersTableViewController *source = segue.sourceViewController;
     FoldersTableViewController *dest = segue.destinationViewController;
     
     FolderDTO *folder = self.folderContents[self.tableView.indexPathForSelectedRow.row];
+    dest.wtClient = source.wtClient;
     dest.folderID = folder.ID;
     dest.title = folder.Name;
     
 }
 
-- (void) setWebTopClient:(WebTopClient *)client
-{
-    self.wtClient = client;
-}
+
 
 @end

@@ -10,6 +10,7 @@
 		140161EC16CC678B0071AB98 /* FoldersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140161EB16CC678B0071AB98 /* FoldersTableViewController.m */; };
 		1419E7AB16CCB28A00A413FC /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1419E7A916CCB28A00A413FC /* iphone.png */; };
 		1419E7AC16CCB28A00A413FC /* iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1419E7AA16CCB28A00A413FC /* iphone@2x.png */; };
+		1422903816CDA8C6002488D2 /* fuze_header_text.png in Resources */ = {isa = PBXBuildFile; fileRef = 1422903716CDA8C6002488D2 /* fuze_header_text.png */; };
 		14382FE216CC32CB0062C71E /* SiteDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 14382FE116CC32CB0062C71E /* SiteDTO.m */; };
 		14382FE516CC52070062C71E /* ProjectDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 14382FE416CC52070062C71E /* ProjectDTO.m */; };
 		147111A216CAC2FD007840D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147111A116CAC2FD007840D4 /* UIKit.framework */; };
@@ -42,6 +43,7 @@
 		1422903216CD5723002488D2 /* ClientDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientDTO.m; sourceTree = "<group>"; };
 		1422903416CD657A002488D2 /* DocumentDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentDTO.h; sourceTree = "<group>"; };
 		1422903516CD657A002488D2 /* DocumentDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentDTO.m; sourceTree = "<group>"; };
+		1422903716CDA8C6002488D2 /* fuze_header_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fuze_header_text.png; path = ../../../../Downloads/fuze_header_text.png; sourceTree = "<group>"; };
 		14382FE016CC32CB0062C71E /* SiteDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteDTO.h; sourceTree = "<group>"; };
 		14382FE116CC32CB0062C71E /* SiteDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteDTO.m; sourceTree = "<group>"; };
 		14382FE316CC52070062C71E /* ProjectDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDTO.h; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		147111A816CAC2FD007840D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1422903716CDA8C6002488D2 /* fuze_header_text.png */,
 				1419E7A916CCB28A00A413FC /* iphone.png */,
 				1419E7AA16CCB28A00A413FC /* iphone@2x.png */,
 				147111A916CAC2FD007840D4 /* fuze Docs-Info.plist */,
@@ -223,6 +226,7 @@
 				147111BE16CAC2FD007840D4 /* MainStoryboard_iPad.storyboard in Resources */,
 				1419E7AB16CCB28A00A413FC /* iphone.png in Resources */,
 				1419E7AC16CCB28A00A413FC /* iphone@2x.png in Resources */,
+				1422903816CDA8C6002488D2 /* fuze_header_text.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

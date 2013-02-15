@@ -13,7 +13,6 @@
 @interface FoldersTableViewController : UITableViewController
 
 @property NSString *folderID;
-
-- (void) setWebTopClient:(WebTopClient *) client;
+@property WebTopClient *wtClient;
 
 @end
