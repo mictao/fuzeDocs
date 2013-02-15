@@ -11,7 +11,7 @@
 
 
 
-+ (WebTopClient *)instance
++ (WebTopClient *) instance
 {
     static WebTopClient *instance = nil;
     
