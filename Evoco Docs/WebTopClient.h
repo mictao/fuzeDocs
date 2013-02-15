@@ -22,4 +22,6 @@
 - (FolderDTO *) getRootFolderForAssociation:(NSString *) assID;
 - (NSArray *) getFolderContents:(NSString *)parentFolderID withDeleted:(BOOL)includeDeleted withEmptyFolders:(BOOL)includeEmptyFolders;
 
+- (NSData *) downloadFile:(NSString *)urlString;
+
 @end

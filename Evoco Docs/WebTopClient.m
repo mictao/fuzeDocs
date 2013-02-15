@@ -20,7 +20,9 @@
     NSError *error;
     NSURLResponse *resp;
     
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&resp error:&error];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     if (data.length > 0 && error == nil)
     {
@@ -104,6 +106,7 @@
 
 - (NSDictionary *) makeServiceCall:(NSString *)serviceUrl method:(NSString *)serviceFunction withArgs:(NSDictionary *)args
 {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSString *urlString = [self.clientUrl stringByAppendingFormat: @"%@/%@", serviceUrl, serviceFunction];
     NSError *error = nil;
     
@@ -130,6 +133,7 @@
     
     NSData *data = [NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&error];
     NSLog(@"Error: %@", error);
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     if (data.length > 0 && error == nil)
     {
@@ -154,6 +158,38 @@
     return nil;
     
 }
+
+
+- (NSData *) downloadFile:(NSString *)urlString
+{
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSLog(@"%@", url);
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+    NSDictionary *headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
+    [req setAllHTTPHeaderFields:headers];
+    
+    NSError *error;
+    NSURLResponse *resp;
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    NSData *data = [NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&error];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+    if (error == nil)
+    {
+        NSLog(@"Downloaded %d bytes", data.length);
+        return data;
+    }
+    else
+    {
+        NSLog(@"Error: %@", error);
+        return nil;
+    }
+}
+
+
 
 
 - (ClientDTO *) getCurrentClient
