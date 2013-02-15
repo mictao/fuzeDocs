@@ -3,6 +3,8 @@
 
 @interface LAPTableViewController : UITableViewController
 
+@property WebTopClient *wtClient;
+
 @property NSInteger currentLevel;
 @property NSString *currentSiteID;
 @property NSString *currentProjectID;
@@ -14,6 +16,5 @@
 @property (nonatomic,strong) NSArray *sites;
 @property (nonatomic,strong) NSArray *projects;
 
-- (void) setWebTopClient:(WebTopClient*)client;
 
 @end

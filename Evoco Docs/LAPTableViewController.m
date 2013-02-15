@@ -7,7 +7,7 @@
 
 @interface LAPTableViewController ()
 
-    @property WebTopClient *wtClient;
+    
 
 @end
 
@@ -190,7 +190,7 @@
         LAPTableViewController *source = segue.sourceViewController;
         LAPTableViewController *dest = segue.destinationViewController;
         
-        [dest setWebTopClient:self.wtClient];
+        dest.wtClient = self.wtClient;
         
         dest.currentLevel = source.currentLevel + 1;
         SiteDTO *site = self.sites[self.tableView.indexPathForSelectedRow.row];
@@ -202,7 +202,7 @@
         LAPTableViewController *source = segue.sourceViewController;
         FoldersTableViewController *dest = segue.destinationViewController;
         
-        [dest setWebTopClient:self.wtClient];
+        dest.wtClient = self.wtClient;
         
         NSString *assID;
         switch (source.currentLevel)
@@ -242,9 +242,6 @@
 }
 
 
-- (void) setWebTopClient: (WebTopClient*) client
-{
-    self.wtClient = client;
-}
+
 
 @end

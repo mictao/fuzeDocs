@@ -97,7 +97,7 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
     {
         LAPTableViewController *dest = segue.destinationViewController;
-        [dest setWebTopClient: self.wtClient];
+        dest.wtClient = self.wtClient;
     }
 
 - (IBAction)resetButtonPressed:(id)sender
