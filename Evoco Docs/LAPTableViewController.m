@@ -6,9 +6,7 @@
 #import "ProjectDTO.h"
 
 @interface LAPTableViewController ()
-
-    @property WebTopClient *wtClient;
-
+@property WebTopClient *wtClient;
 @end
 
 @implementation LAPTableViewController
@@ -18,12 +16,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.wtClient = [WebTopClient instance];
-}
-
-
-- (void) viewWillAppear:(BOOL)animated
-{
-    NSLog(@"viewWillAppear level:%d", self.currentLevel);
     
     switch (self.currentLevel) {
         case 0:
@@ -37,6 +29,14 @@
             break;
         }
     }
+}
+
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    //NSLog(@"viewWillAppear level:%d", self.currentLevel);
+    
+    
 }
 
 
