@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
 @interface ProjectDTO : NSObject
-@property NSString *ProjectID;
-@property NSString *Name;
+@property (nonatomic, strong) NSString *ProjectID;
+@property (nonatomic, strong) NSString *Name;
 @end

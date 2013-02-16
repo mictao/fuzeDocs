@@ -13,8 +13,8 @@
 
 @interface LoginViewController ()
 
-@property WebTopClient *wtClient;
-@property NSUserDefaults *prefs;
+@property (nonatomic, strong) WebTopClient *wtClient;
+@property (nonatomic, strong) NSUserDefaults *prefs;
 
 @end
 
@@ -39,12 +39,8 @@
 {
     [super viewDidLoad];
 
-   
-    
     self.containerView.layer.cornerRadius = 10;
     self.containerView.layer.masksToBounds = YES;
-    
-     NSLog(@"%f", self.containerView.layer.cornerRadius);
     
     self.wtClient = [WebTopClient instance];
     self.prefs = [NSUserDefaults standardUserDefaults];
@@ -84,7 +80,31 @@
 
 - (IBAction)loginButtonPressed:(id)sender
 {
+    [self doLogin];
+}
 
+
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.username)
+    {
+        [textField resignFirstResponder];
+        [self.password becomeFirstResponder];
+    }
+    else if (textField == self.password)
+    {
+        [textField resignFirstResponder];
+        [self becomeFirstResponder];
+        [self doLogin];
+    }
+    return YES;
+}
+
+
+- (void) doLogin
+{
     self.wtClient.clientUrl = [NSString stringWithFormat:@"http://%@/",self.urlHost.text];
     NSString *result = [self.wtClient login: self.username.text password: self.password.text];
     
@@ -102,27 +122,6 @@
         
         [self performSegueWithIdentifier:@"LoginSuccess" sender:self];
     }
-
-}
-
-
-
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    if (textField == self.username)
-    {
-        [textField resignFirstResponder];
-        [self.password becomeFirstResponder];
-    }
-    else if (textField == self.password)
-    {
-        [textField resignFirstResponder];
-        [self becomeFirstResponder];
-        [self.logonButton sendActionsForControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return YES;
 }
 
 

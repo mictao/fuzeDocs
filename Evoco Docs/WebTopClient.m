@@ -2,8 +2,8 @@
 
 @interface WebTopClient ()
 
-@property NSString *umServiceUrl;
-@property NSString *docsServiceUrl;
+@property (nonatomic, strong) NSString *umServiceUrl;
+@property (nonatomic, strong) NSString *docsServiceUrl;
 
 @end
 

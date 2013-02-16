@@ -10,8 +10,8 @@
 
 @interface ClientDTO : NSObject
 
-@property NSString *ClientID;
-@property NSString *Name;
-@property NSString *Url;
+@property (nonatomic, strong) NSString *ClientID;
+@property (nonatomic, strong) NSString *Name;
+@property (nonatomic, strong) NSString *Url;
 
 @end

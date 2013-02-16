@@ -10,9 +10,9 @@
 
 @interface DocumentDTO : NSObject
 
-@property NSString *ID;
-@property NSString *Name;
-@property NSString *DisplaySize;
-@property NSString *UploadedBy;
+@property (nonatomic, strong) NSString *ID;
+@property (nonatomic, strong) NSString *Name;
+@property (nonatomic, strong) NSString *DisplaySize;
+@property (nonatomic, strong) NSString *UploadedBy;
 
 @end

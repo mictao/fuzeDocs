@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface FolderDTO : NSObject
-@property NSString *ID;
-@property NSString *Name;
-@property BOOL HasDocuments;
-@property NSInteger SubfolderCount;
+@property (nonatomic, strong) NSString *ID;
+@property (nonatomic, strong) NSString *Name;
+@property (nonatomic)         BOOL HasDocuments;
+@property (nonatomic)         NSInteger SubfolderCount;
 @end

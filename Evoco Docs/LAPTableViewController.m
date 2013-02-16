@@ -6,7 +6,7 @@
 #import "ProjectDTO.h"
 
 @interface LAPTableViewController ()
-@property WebTopClient *wtClient;
+@property (nonatomic, strong) WebTopClient *wtClient;
 @end
 
 @implementation LAPTableViewController

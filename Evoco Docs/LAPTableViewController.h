@@ -4,8 +4,8 @@
 @interface LAPTableViewController : UITableViewController
 
 @property NSInteger currentLevel;
-@property NSString *currentSiteID;
-@property NSString *currentProjectID;
+@property (nonatomic, strong) NSString *currentSiteID;
+@property (nonatomic, strong) NSString *currentProjectID;
 
 
 @property (nonatomic,strong) NSString *docSectionTitle;

@@ -1,9 +1,9 @@
 #import <Foundation/Foundation.h>
 
 @interface SiteDTO : NSObject
-@property NSString  *SiteID;
-@property NSString  *Name;
-@property NSInteger ProjectCount;
-@property NSString  *City;
-@property NSString  *State;
+@property (nonatomic, strong) NSString  *SiteID;
+@property (nonatomic, strong) NSString  *Name;
+@property (nonatomic)         NSInteger ProjectCount;
+@property (nonatomic, strong) NSString  *City;
+@property (nonatomic, strong) NSString  *State;
 @end

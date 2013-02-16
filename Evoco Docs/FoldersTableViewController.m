@@ -13,9 +13,9 @@
 
 @interface FoldersTableViewController ()
 
-	@property NSArray *folderContents;
-	@property NSString *currentPreviewFilePath;
-	@property WebTopClient *wtClient;
+@property (nonatomic, strong) NSArray *folderContents;
+@property (nonatomic, strong) NSString *currentPreviewFilePath;
+@property (nonatomic, strong) WebTopClient *wtClient;
 
 @end
 

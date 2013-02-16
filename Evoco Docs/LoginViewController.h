@@ -16,8 +16,6 @@
 
 @property (strong, nonatomic) IBOutlet UIView *containerView;
 
-@property (nonatomic, strong) IBOutlet UIButton *logonButton;
-
 @property (nonatomic, strong) IBOutlet UITextField *urlHost;
 @property (nonatomic, strong) IBOutlet UITextField *password;
 @property (nonatomic, strong) IBOutlet UITextField *username;

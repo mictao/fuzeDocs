@@ -10,7 +10,7 @@
 
 @interface WebTopClient : NSObject
 
-@property NSString *clientUrl;
+@property (nonatomic, strong) NSString *clientUrl;
 
 + (WebTopClient *)instance;
 
