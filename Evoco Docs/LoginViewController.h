@@ -12,18 +12,19 @@
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *loginButton;
+
+@property (strong, nonatomic) IBOutlet UIView *containerView;
+
 @property (nonatomic, strong) IBOutlet UIButton *logonButton;
-@property (nonatomic, strong) IBOutlet UIButton *resetButton;
 
 @property (nonatomic, strong) IBOutlet UITextField *urlHost;
-
 @property (nonatomic, strong) IBOutlet UITextField *password;
 @property (nonatomic, strong) IBOutlet UITextField *username;
 
 
 @property (nonatomic, strong) IBOutlet UILabel *message;
 
--(IBAction)logonButtonPressed:(id)sender;
--(IBAction)resetButtonPressed:(id)sender;
+- (IBAction)loginButtonPressed:(id)sender;
 
 @end

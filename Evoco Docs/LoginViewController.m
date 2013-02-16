@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "WebTopClient.h"
 #import "LAPTableViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface LoginViewController ()
 
@@ -26,6 +27,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        
+       
+        
     }
     return self;
 }
@@ -33,8 +38,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+   
     
+    self.containerView.layer.cornerRadius = 10;
+    self.containerView.layer.masksToBounds = YES;
+    
+     NSLog(@"%f", self.containerView.layer.cornerRadius);
     
     self.wtClient = [WebTopClient instance];
     self.prefs = [NSUserDefaults standardUserDefaults];
@@ -72,7 +82,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)logonButtonPressed:(id)sender
+- (IBAction)loginButtonPressed:(id)sender
 {
 
     self.wtClient.clientUrl = [NSString stringWithFormat:@"http://%@/",self.urlHost.text];
@@ -95,12 +105,8 @@
 
 }
 
-- (IBAction)resetButtonPressed:(id)sender
-{
-    self.password.text = nil;
-    self.username.text = nil;
-    self.message.text = nil;
-}
+
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

@@ -87,7 +87,7 @@
         case 0:
             switch (self.currentLevel) {
                 case 0:
-                    return @"get the name";
+                    return self.wtClient.clientUrl; // @"Home";
                 case 1:
                     return self.docSectionTitle;
             }
