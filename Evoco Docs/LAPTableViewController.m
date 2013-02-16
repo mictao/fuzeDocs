@@ -35,8 +35,6 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     //NSLog(@"viewWillAppear level:%d", self.currentLevel);
-    
-    
 }
 
 

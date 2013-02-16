@@ -7,7 +7,6 @@
 @property NSString *currentSiteID;
 @property NSString *currentProjectID;
 
-//@property NSString *clientUrl;
 
 @property (nonatomic,strong) NSString *docSectionTitle;
 

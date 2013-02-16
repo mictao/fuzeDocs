@@ -19,6 +19,6 @@
 
 @property NSString *folderID;
 
-@property (nonatomic, retain) UIDocumentInteractionController *docInteractionController;
+//@property (nonatomic, retain) UIDocumentInteractionController *docInteractionController;
 
 @end

@@ -75,7 +75,7 @@
 - (IBAction)logonButtonPressed:(id)sender
 {
 
-    [self.wtClient setClientUrl: [NSString stringWithFormat:@"http://%@/",self.urlHost.text]];
+    self.wtClient.clientUrl = [NSString stringWithFormat:@"http://%@/",self.urlHost.text];
     NSString *result = [self.wtClient login: self.username.text password: self.password.text];
     
     [self.view endEditing:YES];

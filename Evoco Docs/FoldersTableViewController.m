@@ -155,11 +155,11 @@
     {
 		DocumentDTO *doc = (DocumentDTO *)item;
         NSString *downloadUrl = [NSString stringWithFormat: @"UserManagement/Application/Viewers/FileHandler.ashx?download=true&docID=%@", doc.ID];
-        NSData *docData = [[WebTopClient instance] downloadFile:downloadUrl];
+        NSData *docData = [self.wtClient downloadFile:downloadUrl];
 		
         self.currentPreviewFilePath = [NSString pathWithComponents: [NSArray arrayWithObjects: NSHomeDirectory(), @"Documents", doc.Name, nil]];
         NSLog(@"%@", self.currentPreviewFilePath);
-		[docData writeToFile:self.currentPreviewFilePath atomically:YES];
+		[docData writeToFile:self.currentPreviewFilePath atomically:NO];
 		
 		[self openQLPreviewController];
 	}
