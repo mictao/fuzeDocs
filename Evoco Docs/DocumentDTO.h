@@ -14,5 +14,8 @@
 @property (nonatomic, strong) NSString *Name;
 @property (nonatomic, strong) NSString *DisplaySize;
 @property (nonatomic, strong) NSString *UploadedBy;
+@property (nonatomic, strong) NSString *ModifiedDate;
+@property (nonatomic)         BOOL     IsRead;
+
 
 @end

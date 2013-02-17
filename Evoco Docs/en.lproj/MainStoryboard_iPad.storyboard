@@ -11,7 +11,21 @@
                     <view key="view" contentMode="scaleToFill" id="BIE-3H-Iun">
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select a document on the left for viewing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nfy-It-Jwt">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="334" id="ahd-Bb-0ub"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nfy-It-Jwt" firstAttribute="top" secondItem="BIE-3H-Iun" secondAttribute="top" constant="20" symbolic="YES" type="default" id="pk1-3q-4ox"/>
+                            <constraint firstItem="Nfy-It-Jwt" firstAttribute="leading" secondItem="BIE-3H-Iun" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="vw6-bU-xLY"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                 </viewController>
@@ -44,7 +58,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="92R-Hs-dzY" kind="push" id="jgZ-At-4u5"/>
+                                    <segue destination="92R-Hs-dzY" kind="push" identifier="DocSegue" id="jgZ-At-4u5"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LAPCell" textLabel="EYs-J5-GO5" detailTextLabel="23v-Hm-tSq" style="IBUITableViewCellStyleSubtitle" id="kxw-22-U9g">
@@ -68,7 +82,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="OFM-0F-868" kind="push" id="kIf-YO-yKe"/>
+                                    <segue destination="OFM-0F-868" kind="push" identifier="LAPSegue" id="kIf-YO-yKe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -124,7 +138,7 @@
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPy-KR-Zm3">
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
@@ -258,10 +272,10 @@
             </objects>
             <point key="canvasLocation" x="316" y="-2651"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Docs Split View Controller-->
         <scene sceneID="LA1-Jy-Kpn">
             <objects>
-                <splitViewController id="PY1-dD-3Ve" sceneMemberID="viewController">
+                <splitViewController id="PY1-dD-3Ve" customClass="DocsSplitViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="d4A-fW-3SU"/>
                     <connections>
@@ -278,6 +292,9 @@
         <image name="fuze_header_text.png" width="450" height="110"/>
     </resources>
     <classes>
+        <class className="DocsSplitViewController" superclassName="UISplitViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DocsSplitViewController.h"/>
+        </class>
         <class className="FoldersTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FoldersTableViewController.h"/>
         </class>

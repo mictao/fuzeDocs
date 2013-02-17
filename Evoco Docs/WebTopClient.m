@@ -310,11 +310,14 @@
     NSArray *docsArr = [dic objectForKey:@"Documents"];
     for (NSDictionary *docDic in docsArr)
     {
+        NSLog(@"Doc: %@", docDic);
         DocumentDTO *doc = [[DocumentDTO alloc] init];
         doc.ID = [docDic objectForKey:@"ID"];
         doc.Name = [docDic objectForKey:@"Name"];
         doc.DisplaySize = [docDic objectForKey:@"DisplaySize"];
         doc.UploadedBy = [docDic objectForKey:@"UploadedBy"];
+        doc.ModifiedDate = [docDic objectForKey:@"ModifiedDate"];
+        doc.IsRead = [[docDic objectForKey:@"IsRead"] boolValue];
         [results addObject:doc];
     }
 

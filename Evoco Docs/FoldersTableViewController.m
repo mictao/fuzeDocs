@@ -102,7 +102,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         DocumentDTO *doc = (DocumentDTO *)item;
         cell.textLabel.text = doc.Name;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", doc.DisplaySize, doc.UploadedBy];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@ %@", doc.DisplaySize, doc.UploadedBy, doc.ModifiedDate];
     }
     return cell;
 }
