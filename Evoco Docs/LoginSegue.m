@@ -10,7 +10,7 @@
 
 @implementation LoginSegue
 - (void) perform {
-    NSLog(@"Do the segue you way");
+    //NSLog(@"Do the segue you way");
     UIViewController *src = self.sourceViewController;
     UIWindow *window = src.view.window;
     [window addSubview:[self.destinationViewController view]];

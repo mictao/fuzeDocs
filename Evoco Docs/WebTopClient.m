@@ -155,7 +155,7 @@
     NSURLResponse *resp;
     
     NSData *data = [NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&error];
-    NSLog(@"Error: %@", error);
+    //NSLog(@"Error: %@", error);
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     if (data.length > 0 && error == nil)
@@ -165,7 +165,7 @@
         
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-        NSLog(@"Error: %@", error);
+        //NSLog(@"Error: %@", error);
         //NSLog(@"JSON: %@", dic);
         
         NSDictionary *dic2 = [dic objectForKey:@"d"];
@@ -214,7 +214,7 @@
 - (ClientDTO *) getCurrentClient
 {
     NSDictionary *dic = [self makeServiceCall:self.umServiceUrl method:@"GetCurrentClient" withArgs:nil];
-    NSLog(@"JSON: %@", dic);
+    //NSLog(@"JSON: %@", dic);
     
     ClientDTO *client = [[ClientDTO alloc] init];
     client.ClientID = [dic objectForKey:@"ClientID"];
@@ -260,7 +260,7 @@
         project.Name = [d objectForKey:@"Name"];
         [projects addObject:project];
     }
-    NSLog(@"projects: %@", projects);
+    //NSLog(@"projects: %@", projects);
     return projects;
 }
 
@@ -310,7 +310,7 @@
     NSArray *docsArr = [dic objectForKey:@"Documents"];
     for (NSDictionary *docDic in docsArr)
     {
-        NSLog(@"Doc: %@", docDic);
+        //NSLog(@"Doc: %@", docDic);
         DocumentDTO *doc = [[DocumentDTO alloc] init];
         doc.ID = [docDic objectForKey:@"ID"];
         doc.Name = [docDic objectForKey:@"Name"];
@@ -323,6 +323,12 @@
 
     return results;
 }
+
+
+
+
+
+
 
 
 /*
