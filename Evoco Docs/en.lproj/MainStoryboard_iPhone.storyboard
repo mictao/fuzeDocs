@@ -167,6 +167,7 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Connect to fuze™ Documents" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbf-MA-Pxb">
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="64" type="user" id="99P-Dq-fmL"/>
                                     <constraint firstAttribute="width" constant="263" id="ooa-7U-4Tb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -180,22 +181,8 @@
                                     <constraint firstAttribute="width" constant="285" id="xN6-kl-ubs"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTa-vW-2GZ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTa-vW-2GZ" userLabel="Contaner View">
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kvl-fM-CjD">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="kPO-mF-f7F"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" secureTextEntry="YES"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="y5V-vc-O8a">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="5hs-io-pgs"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
-                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="biddernator.devtop.evoco.com" placeholder="client url" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YVe-5i-dQL">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="272" id="RI9-y7-wZg"/>
@@ -204,31 +191,46 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                     </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="y5V-vc-O8a">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="5hs-io-pgs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Kvl-fM-CjD">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="kPO-mF-f7F"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" secureTextEntry="YES"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="YVe-5i-dQL" firstAttribute="top" secondItem="wTa-vW-2GZ" secondAttribute="top" constant="20" symbolic="YES" type="default" id="6fJ-HD-P3k"/>
                                     <constraint firstItem="Kvl-fM-CjD" firstAttribute="trailing" secondItem="y5V-vc-O8a" secondAttribute="trailing" type="default" id="9rg-BY-ufV"/>
-                                    <constraint firstItem="YVe-5i-dQL" firstAttribute="leading" secondItem="wTa-vW-2GZ" secondAttribute="leading" constant="13" id="ANf-Pt-ums"/>
                                     <constraint firstItem="YVe-5i-dQL" firstAttribute="trailing" secondItem="y5V-vc-O8a" secondAttribute="trailing" type="default" id="AP3-27-I2G"/>
                                     <constraint firstItem="Kvl-fM-CjD" firstAttribute="leading" secondItem="y5V-vc-O8a" secondAttribute="leading" type="default" id="Fry-sH-Ov2"/>
                                     <constraint firstItem="YVe-5i-dQL" firstAttribute="leading" secondItem="y5V-vc-O8a" secondAttribute="leading" type="default" id="N7V-K3-Y6Q"/>
                                     <constraint firstAttribute="bottom" secondItem="Kvl-fM-CjD" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="h1p-JW-4Vx"/>
                                     <constraint firstItem="Kvl-fM-CjD" firstAttribute="top" secondItem="y5V-vc-O8a" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="h8y-xc-5fU"/>
                                     <constraint firstItem="y5V-vc-O8a" firstAttribute="centerX" secondItem="wTa-vW-2GZ" secondAttribute="centerX" type="default" id="nQu-Uu-ryN"/>
+                                    <constraint firstAttribute="height" constant="154" type="user" id="tAw-wv-DvR"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wTa-vW-2GZ" firstAttribute="centerX" secondItem="ZUH-qV-iIb" secondAttribute="centerX" type="default" id="4N8-TL-ARu"/>
-                            <constraint firstItem="wTa-vW-2GZ" firstAttribute="top" secondItem="Fbf-MA-Pxb" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5x3-j0-ziM"/>
+                            <constraint firstItem="wTa-vW-2GZ" firstAttribute="top" secondItem="Fbf-MA-Pxb" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="5x3-j0-ziM"/>
+                            <constraint firstAttribute="centerY" secondItem="wTa-vW-2GZ" secondAttribute="centerY" type="user" id="B2E-ke-pbr"/>
                             <constraint firstItem="Fbf-MA-Pxb" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="51" id="DoK-BB-Vz7"/>
-                            <constraint firstAttribute="bottom" secondItem="auR-3s-3Zf" secondAttribute="bottom" constant="150" id="Eff-xU-B9U"/>
-                            <constraint firstItem="Fbf-MA-Pxb" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="103" id="GE1-KU-tqg"/>
+                            <constraint firstItem="Fbf-MA-Pxb" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="103" type="user" id="GE1-KU-tqg"/>
                             <constraint firstItem="auR-3s-3Zf" firstAttribute="top" secondItem="wTa-vW-2GZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="LBw-io-UHa"/>
                             <constraint firstItem="WdU-E7-EDn" firstAttribute="top" secondItem="ZUH-qV-iIb" secondAttribute="top" constant="9" id="SzL-32-zH2"/>
                             <constraint firstItem="auR-3s-3Zf" firstAttribute="leading" secondItem="WdU-E7-EDn" secondAttribute="leading" type="default" id="UE2-Bs-ad2"/>
+                            <constraint firstItem="wTa-vW-2GZ" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="11" id="kUt-Tq-3E0"/>
                             <constraint firstItem="WdU-E7-EDn" firstAttribute="leading" secondItem="ZUH-qV-iIb" secondAttribute="leading" constant="10" id="w8R-wq-vFk"/>
                         </constraints>
                     </view>
@@ -239,6 +241,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="wTa-vW-2GZ" id="qnB-ZC-Zze"/>
                         <outlet property="loginButton" destination="Ei4-ox-Nmz" id="4qg-FK-ZUT"/>
@@ -270,7 +273,6 @@
                 <relationship kind="action" name="loginButtonPressed:"/>
                 <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="loginButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="logonButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="message" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="password" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="urlHost" candidateClass="UITextField"/>
