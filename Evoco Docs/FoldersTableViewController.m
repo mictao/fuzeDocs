@@ -10,6 +10,7 @@
 #import "WebTopClient.h"
 #import "FolderDTO.h"
 #import "DocumentDTO.h"
+#import "DocumentPreviewController.h"
 
 @interface FoldersTableViewController ()
 
@@ -150,29 +151,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	
+	
     id item = self.folderContents[indexPath.row];
     if ([item isKindOfClass:[DocumentDTO class]])
     {
 		DocumentDTO *doc = (DocumentDTO *)item;
-        NSString *downloadUrl = [NSString stringWithFormat: @"UserManagement/Application/Viewers/FileHandler.ashx?download=true&docID=%@", doc.ID];
-        NSData *docData = [self.wtClient downloadFile:downloadUrl];
-		
-        self.currentPreviewFilePath = [NSString pathWithComponents: [NSArray arrayWithObjects: NSHomeDirectory(), @"Documents", doc.Name, nil]];
-        NSLog(@"%@", self.currentPreviewFilePath);
-		[docData writeToFile:self.currentPreviewFilePath atomically:NO];
-		
-		[self openQLPreviewController];
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+		{
+			NSString *downloadUrl = [NSString stringWithFormat: @"UserManagement/Application/Viewers/FileHandler.ashx?download=true&docID=%@", doc.ID];
+			NSData *docData = [self.wtClient downloadFile:downloadUrl];
+			
+			self.currentPreviewFilePath = [NSString pathWithComponents: [NSArray arrayWithObjects: NSHomeDirectory(), @"Documents", doc.Name, nil]];
+			NSLog(@"%@", self.currentPreviewFilePath);
+			[docData writeToFile:self.currentPreviewFilePath atomically:NO];
+			
+			
+			[self openQLPreviewController];
+		}
 	}
-
-    
-    
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 - (void)openQLPreviewController;
@@ -198,15 +195,28 @@
 {
     //NSLog(@"Source Controller = %@", [segue sourceViewController]);
     //NSLog(@"Destination Controller = %@", [segue destinationViewController]);
-    //NSLog(@"Segue Identifier = %@", [segue identifier]);
+    NSLog(@"Segue Identifier = %@", [segue identifier]);
     
     //FoldersTableViewController *source = segue.sourceViewController;
-    FoldersTableViewController *dest = segue.destinationViewController;
-    
-    FolderDTO *folder = self.folderContents[self.tableView.indexPathForSelectedRow.row];
-    dest.folderID = folder.ID;
-    dest.title = folder.Name;
-    
+
+	
+	if ([segue.identifier isEqualToString:@"DocumentView"]) {
+	
+		DocumentPreviewController *dest = (DocumentPreviewController *)segue.destinationViewController;
+		
+        // note that "sender" will be the tableView cell that was selected
+        UITableViewCell *cell = (UITableViewCell*)sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+		
+        dest.dto = (DocumentDTO *) self.folderContents[indexPath.row];
+    }
+	else if ([segue.identifier isEqualToString:@"FolderView"])
+	{
+		FoldersTableViewController *dest = segue.destinationViewController;
+		FolderDTO *folder = self.folderContents[self.tableView.indexPathForSelectedRow.row];
+		dest.folderID = folder.ID;
+		dest.title = folder.Name;
+	}
 }
 
 

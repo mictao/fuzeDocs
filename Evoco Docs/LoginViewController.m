@@ -58,17 +58,17 @@
     
     [self.view addGestureRecognizer:tap];
 
-    // for scrolling view when keyboard is shown. not working yet.
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    
-    // for scrolling view when keyboard is hidden, not working yet.
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
+//    // for scrolling view when keyboard is shown. not working yet.
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(keyboardWillShow:)
+//                                                 name:UIKeyboardWillShowNotification
+//                                               object:nil];
+//    
+//    // for scrolling view when keyboard is hidden, not working yet.
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(keyboardWillHide:)
+//                                                 name:UIKeyboardWillHideNotification
+//                                               object:nil];
 }
 
 

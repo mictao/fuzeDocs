@@ -1,19 +1,18 @@
 //
-//  DocsSplitViewController.m
+//  DocumentPreviewControllerViewController.m
 //  fuze Docs
 //
-//  Created by Gabor Shaio on 2013-02-17.
+//  Created by Adam Clark on 2013-02-18.
 //  Copyright (c) 2013 Evoco. All rights reserved.
 //
 
-#import "DocsSplitViewController.h"
+#import "DocumentPreviewControllerViewController.h"
 
-
-@interface DocsSplitViewController ()
+@interface DocumentPreviewController ()
 
 @end
 
-@implementation DocsSplitViewController
+@implementation DocumentPreviewControllerViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,20 +27,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-// this is not working
-- (BOOL) splitViewController:(UISplitViewController *)svc
-    shouldHideViewController:(UIViewController *)vc
-               inOrientation:(UIInterfaceOrientation)orientation{
-    return NO;
 }
 
 @end

@@ -10,10 +10,9 @@
 #import "WebTopClient.h"
 #import <QuickLook/QuickLook.h>
 
-@interface FoldersTableViewController : UITableViewController  <QLPreviewControllerDataSource,
+@interface FoldersTableViewController : UITableViewController   <QLPreviewControllerDataSource,
                                                                 QLPreviewControllerDelegate,
                                                                 UIDocumentInteractionControllerDelegate>
-
 @property NSString *folderID;
 
 @end
