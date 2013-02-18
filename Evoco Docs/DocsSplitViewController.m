@@ -36,6 +36,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) didSelectDocument:(DocumentDTO  *) dto
+{
+    
+}
 
 // this is not working
 - (BOOL) splitViewController:(UISplitViewController *)svc
