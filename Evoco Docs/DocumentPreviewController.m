@@ -60,7 +60,13 @@
     QLPreviewController *previewController = [[QLPreviewController alloc] init];
     [previewController setDataSource:self];
     [previewController setDelegate:self];
-    [self.navigationController pushViewController:previewController animated:NO];
+
+    [[self navigationController] pushViewController:previewController  animated:NO];
+    
+//    UINavigationController *wrapperNavigationController = [[UINavigationController alloc] initWithRootViewController:previewController];
+//    UIViewController *masterViewController = [[[self splitViewController] viewControllers] objectAtIndex:0];
+//    
+//    [[self splitViewController] setViewControllers:[NSArray arrayWithObjects:masterViewController, wrapperNavigationController, nil]];
     
 }
 
