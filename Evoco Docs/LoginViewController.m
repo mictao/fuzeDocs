@@ -57,6 +57,36 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+
+    // for scrolling view when keyboard is shown. not working yet.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    // for scrolling view when keyboard is hidden, not working yet.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+
+- (void) keyboardWillShow: (NSNotification *) notification
+{
+//    [UIView beginAnimations:nil context:nil];
+//    CGRect endRect = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    CGRect newRect = self.view.frame;
+//    //Down size your text view
+//    newRect.size.height -= endRect.size.height;
+//    self.view.frame = newRect;
+//    [UIView commitAnimations];
+}
+
+- (void) keyboarrdWillHide: (NSNotification *) notification
+{
+
+    
 }
 
 - (void) dismissKeyboard
