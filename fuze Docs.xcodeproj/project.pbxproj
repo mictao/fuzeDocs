@@ -172,6 +172,8 @@
 				142EF2EF16D1732F0088BA25 /* DocsSplitViewController.m */,
 				D2896ADA16D2AE64006542C7 /* DocumentPreviewController.h */,
 				D2896ADB16D2AE65006542C7 /* DocumentPreviewController.m */,
+				C3846B6A16D2BF0700208869 /* NavigationViewController.h */,
+				C3846B6B16D2BF0700208869 /* NavigationViewController.m */,
 			);
 			path = "Evoco Docs";
 			sourceTree = "<group>";
@@ -286,6 +288,7 @@
 				D259530516CDCCD1006F694A /* LoginSegue.m in Sources */,
 				142EF2F016D1732F0088BA25 /* DocsSplitViewController.m in Sources */,
 				D2896ADC16D2AE65006542C7 /* DocumentPreviewController.m in Sources */,
+				C3846B6C16D2BF0700208869 /* NavigationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
