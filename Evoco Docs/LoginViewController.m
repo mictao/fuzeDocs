@@ -69,6 +69,9 @@
 //                                             selector:@selector(keyboardWillHide:)
 //                                                 name:UIKeyboardWillHideNotification
 //                                               object:nil];
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceOrientationDidChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 
@@ -154,6 +157,19 @@
     }
 }
 
+
+
+
+- (void) deviceOrientationDidChange:(NSNotification *)notification
+{
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    if (UIDeviceOrientationIsLandscape(orientation))
+    {
+        self.containerView.center = CGPointMake(self.containerView.center.x,self.containerView.center.y-20);
+        self.message.center = CGPointMake(self.message.center.x,self.message.center.y+15);
+    }
+    
+}
 
 
 @end
