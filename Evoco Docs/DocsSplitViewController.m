@@ -36,7 +36,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 // this is not working
 - (BOOL) splitViewController:(UISplitViewController *)svc
     shouldHideViewController:(UIViewController *)vc
