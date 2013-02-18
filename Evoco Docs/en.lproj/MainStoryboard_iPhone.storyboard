@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="UOu-oL-SUF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="UOu-oL-SUF">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -137,10 +137,10 @@
             </objects>
             <point key="canvasLocation" x="938" y="31"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="eY7-eD-CSS">
             <objects>
-                <navigationController definesPresentationContext="YES" id="UOu-oL-SUF" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="UOu-oL-SUF" customClass="NavigationViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="4vW-dB-KWk"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fvB-w6-B48">
                         <autoresizingMask key="autoresizingMask"/>
@@ -286,6 +286,9 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NavigationViewController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavigationViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

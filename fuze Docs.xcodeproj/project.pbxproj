@@ -29,6 +29,7 @@
 		147111BE16CAC2FD007840D4 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 147111BC16CAC2FD007840D4 /* MainStoryboard_iPad.storyboard */; };
 		147111C116CAC2FD007840D4 /* LAPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147111C016CAC2FD007840D4 /* LAPTableViewController.m */; };
 		147111C916CB12B4007840D4 /* WebTopClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 147111C816CB12B4007840D4 /* WebTopClient.m */; };
+		C3846B6C16D2BF0700208869 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3846B6B16D2BF0700208869 /* NavigationViewController.m */; };
 		D259530516CDCCD1006F694A /* LoginSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D259530416CDCCD1006F694A /* LoginSegue.m */; };
 		D28A663B16CD757900256951 /* FolderDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1419E7AE16CD475E00A413FC /* FolderDTO.m */; };
 		D28A663C16CD757900256951 /* ClientDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1422903216CD5723002488D2 /* ClientDTO.m */; };
@@ -75,6 +76,8 @@
 		147111C016CAC2FD007840D4 /* LAPTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LAPTableViewController.m; sourceTree = "<group>"; };
 		147111C716CB12B4007840D4 /* WebTopClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebTopClient.h; sourceTree = "<group>"; };
 		147111C816CB12B4007840D4 /* WebTopClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebTopClient.m; sourceTree = "<group>"; };
+		C3846B6A16D2BF0700208869 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		C3846B6B16D2BF0700208869 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		D259530316CDCCD1006F694A /* LoginSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginSegue.h; sourceTree = "<group>"; };
 		D259530416CDCCD1006F694A /* LoginSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginSegue.m; sourceTree = "<group>"; };
 		D2C563AF16CC87CA00F786C8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 				D259530216CDC91E006F694A /* iPad Specifics */,
 				142EF2EE16D1732F0088BA25 /* DocsSplitViewController.h */,
 				142EF2EF16D1732F0088BA25 /* DocsSplitViewController.m */,
+				C3846B6A16D2BF0700208869 /* NavigationViewController.h */,
+				C3846B6B16D2BF0700208869 /* NavigationViewController.m */,
 			);
 			path = "Evoco Docs";
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				D2C563B216CC87CA00F786C8 /* LoginViewController.m in Sources */,
 				D259530516CDCCD1006F694A /* LoginSegue.m in Sources */,
 				142EF2F016D1732F0088BA25 /* DocsSplitViewController.m in Sources */,
+				C3846B6C16D2BF0700208869 /* NavigationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
