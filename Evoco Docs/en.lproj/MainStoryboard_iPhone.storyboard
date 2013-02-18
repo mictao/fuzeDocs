@@ -121,8 +121,17 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="yCW-6J-NBb"/>
+                    <navigationItem key="navigationItem" id="yCW-6J-NBb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="oI3-Qw-XF3">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="aRW-Tk-wem" id="yS1-RS-NfS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addButton" destination="oI3-Qw-XF3" id="e0E-ko-qBp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G2y-61-cmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -263,6 +272,10 @@
     <classes>
         <class className="FoldersTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FoldersTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addButtonPressed:"/>
+                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="LAPTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPTableViewController.h"/>

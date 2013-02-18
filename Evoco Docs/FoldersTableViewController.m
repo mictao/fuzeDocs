@@ -180,6 +180,8 @@
 	// When user taps a row, create the preview controller
 	QLPreviewController *previewer = [[QLPreviewController alloc] init];
 	
+	
+	
 	// Set data source
 	previewer.dataSource = self;
 	//[previewer setTitle:@"PDF Title"];
@@ -234,6 +236,46 @@
 	return [NSURL fileURLWithPath:self.currentPreviewFilePath];
 }
 
+
+
+- (IBAction)addButtonPressed:(id)sender
+{
+	if ([UIImagePickerController isSourceTypeAvailable:
+		 UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+    {
+		UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+		imagePicker.delegate = self;
+		imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        //imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
+		imagePicker.allowsEditing = NO;
+		[self presentViewController:imagePicker	animated:YES completion:nil];
+		//_newMedia = NO;
+    }
+	
+	
+	/*if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
+		UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+		
+		imagePicker.sourceType =  UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+		
+		imagePicker.delegate = self;
+	*/
+	//	[self presentModalViewController:imagePicker animated:YES];
+	
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+	
+    NSData *imageData = UIImagePNGRepresentation(image);
+	
+	NSLog(@"%d", imageData.length);
+	
+    // do twitter stuff here....
+	
+    //[self dismissModalViewControllerAnimated:YES];
+}
 
 
 @end
