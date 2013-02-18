@@ -157,22 +157,26 @@
     if ([item isKindOfClass:[DocumentDTO class]])
     {
 		DocumentDTO *doc = (DocumentDTO *)item;
+		NSString *downloadUrl = [NSString stringWithFormat: @"UserManagement/Application/Viewers/FileHandler.ashx?download=true&docID=%@", doc.ID];
+		NSData *docData = [self.wtClient downloadFile:downloadUrl];
+		
+		self.currentPreviewFilePath = [NSString pathWithComponents: [NSArray arrayWithObjects: NSHomeDirectory(), @"Documents", doc.Name, nil]];
+		NSLog(@"%@", self.currentPreviewFilePath);
+		[docData writeToFile:self.currentPreviewFilePath atomically:NO];
+		
+		
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 		{
-			NSString *downloadUrl = [NSString stringWithFormat: @"UserManagement/Application/Viewers/FileHandler.ashx?download=true&docID=%@", doc.ID];
-			NSData *docData = [self.wtClient downloadFile:downloadUrl];
-			
-			self.currentPreviewFilePath = [NSString pathWithComponents: [NSArray arrayWithObjects: NSHomeDirectory(), @"Documents", doc.Name, nil]];
-			NSLog(@"%@", self.currentPreviewFilePath);
-			[docData writeToFile:self.currentPreviewFilePath atomically:NO];
-			
-			
-			[self openQLPreviewController];
+			[self openQLPreviewController: [self navigationController]];
+		}
+		else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+		{
+			[self openQLPreviewController:[[[self splitViewController] viewControllers] objectAtIndex:1]];
 		}
 	}
 }
 
-- (void)openQLPreviewController;
+- (void)openQLPreviewController: (UINavigationController *) controller;
 {
 	// When user taps a row, create the preview controller
 	QLPreviewController *previewer = [[QLPreviewController alloc] init];
@@ -187,7 +191,7 @@
 	previewer.currentPreviewItemIndex = 0;
 	
 	
-	[[self navigationController] pushViewController:previewer animated:YES];
+	[controller pushViewController:previewer animated:YES];
 }
 
 

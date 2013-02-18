@@ -9,7 +9,7 @@
             <objects>
                 <viewController storyboardIdentifier="DocumentPreview" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pyX-ai-LXQ" customClass="DocumentPreviewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BIE-3H-Iun">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="Please Select a Document For Viewing" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="334" translatesAutoresizingMaskIntoConstraints="NO" id="Nfy-It-Jwt">
@@ -24,8 +24,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Nfy-It-Jwt" secondAttribute="centerX" type="user" id="32Y-CV-bLL"/>
                             <constraint firstAttribute="centerY" secondItem="Nfy-It-Jwt" secondAttribute="centerY" type="user" id="EFL-Wl-Cdr"/>
-                            <constraint firstAttribute="centerX" secondItem="Nfy-It-Jwt" secondAttribute="centerX" type="user" id="HqM-DT-Pb5"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -33,22 +33,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLh-AW-f3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2830" y="-989"/>
+            <point key="canvasLocation" x="2385" y="-1141"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="fGF-7q-y1d">
+        <scene sceneID="R9g-08-oIg">
             <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="O86-cz-t4p" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hg9-UB-mhk">
+                <navigationController definesPresentationContext="YES" id="Ss7-Ci-v5V" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SqT-5c-CbH">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="pyX-ai-LXQ" kind="relationship" relationship="rootViewController" id="OnV-Sk-7qF"/>
+                        <segue destination="pyX-ai-LXQ" kind="relationship" relationship="rootViewController" id="7l0-b7-SaU"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e0U-Nq-bXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V95-va-qjQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1845" y="-1014"/>
+            <point key="canvasLocation" x="1405" y="-1141"/>
         </scene>
         <!--Table View Controller - Home-->
         <scene sceneID="v4x-tg-uVd">
@@ -162,9 +162,6 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <connections>
-                                    <segue destination="pyX-ai-LXQ" kind="replace" identifier="DocumentView" splitViewControllerTargetIndex="1" id="vPc-cn-vl6"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -186,6 +183,10 @@
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="tke-Tb-w2s">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ej8-fa-j6F">
+                        <rect key="frame" x="0.0" y="960" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="OFM-0F-868" kind="relationship" relationship="rootViewController" id="AUX-Nf-AwY"/>
                     </connections>
@@ -300,7 +301,7 @@
                     <navigationItem key="navigationItem" id="d4A-fW-3SU"/>
                     <connections>
                         <segue destination="K5T-a7-QrI" kind="relationship" relationship="masterViewController" id="Xqq-Ug-XI5"/>
-                        <segue destination="O86-cz-t4p" kind="relationship" relationship="detailViewController" id="Lrm-e7-sge"/>
+                        <segue destination="Ss7-Ci-v5V" kind="relationship" relationship="detailViewController" id="ygq-Jk-RKL"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7rD-Bd-GCs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -311,35 +312,6 @@
     <resources>
         <image name="fuze_header_text.png" width="450" height="110"/>
     </resources>
-    <classes>
-        <class className="DocsSplitViewController" superclassName="UISplitViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DocsSplitViewController.h"/>
-        </class>
-        <class className="DocumentPreviewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DocumentPreviewController.h"/>
-        </class>
-        <class className="FoldersTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FoldersTableViewController.h"/>
-        </class>
-        <class className="LAPTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPTableViewController.h"/>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="loginButtonPressed:"/>
-                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="loginButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="message" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="urlHost" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -348,6 +320,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="AUX-Nf-AwY"/>
         <segue reference="jgZ-At-4u5"/>
-        <segue reference="vPc-cn-vl6"/>
     </inferredMetricsTieBreakers>
 </document>
