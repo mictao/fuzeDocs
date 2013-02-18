@@ -25,5 +25,6 @@
 - (NSArray *) getFolderContents:(NSString *)parentFolderID withDeleted:(BOOL)includeDeleted withEmptyFolders:(BOOL)includeEmptyFolders;
 
 - (NSData *) downloadFile:(NSString *)urlString;
+- (void) uploadFile:(NSString *)urlString fromData:(NSData *)fileData;
 
 @end

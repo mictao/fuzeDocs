@@ -211,6 +211,38 @@
     }
 }
 
+
+- (void) uploadFile:(NSString *)urlString fromData:(NSData *)fileData
+{
+    NSURL *url = [NSURL URLWithString:[self.clientUrl stringByAppendingString:urlString]];
+    NSLog(@"%@", url);
+    
+    NSMutableURLRequest *req = [NSMutableURLRequest  requestWithURL:url];
+    req.timeoutInterval = 180.0f;
+    req.HTTPMethod = @"POST";
+    
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+    NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
+    [req setAllHTTPHeaderFields:cookieHeaders];
+    [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [req setValue:@"_test.png"                         forHTTPHeaderField:@"X-File-Name"];
+    [req setValue:@"0"                                 forHTTPHeaderField:@"X-File-TempId"];
+    
+    NSString* len = [[NSString alloc] initWithFormat:@"%d", fileData.length];
+    [req setValue:len forHTTPHeaderField:@"Content-Length"];
+    [req setValue:len forHTTPHeaderField:@"X-File-Size"];
+    
+    req.HTTPBody = fileData;
+    
+    NSError *error = nil;
+    NSURLResponse *resp;
+    
+    NSData *respData = [NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&error];
+    NSLog(@"Error: %@", error);
+
+}
+
+
 - (ClientDTO *) getCurrentClient
 {
     NSDictionary *dic = [self makeServiceCall:self.umServiceUrl method:@"GetCurrentClient" withArgs:nil];

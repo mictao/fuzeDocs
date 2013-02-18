@@ -280,7 +280,11 @@
 	
     NSData *imageData = UIImagePNGRepresentation(image);
 	
-	NSLog(@"%d", imageData.length);
+	NSString *uploadUrl = [NSString stringWithFormat: @"Documents/Application/Documents/FileUpload.ashx?FolderID=%@", self.folderID];
+
+	[self.wtClient uploadFile:uploadUrl fromData:imageData];
+	
+	//NSLog(@"%d", imageData.length);
 	
     // do twitter stuff here....
 	
