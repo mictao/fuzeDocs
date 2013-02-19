@@ -294,13 +294,7 @@
     NSMutableArray *sites = [[NSMutableArray alloc] init];
     for (NSDictionary *d in arr)
     {
-        SiteDTO *site = [[SiteDTO alloc] init];
-        site.SiteID = [d objectForKey:@"LocationID"];
-        site.Name = [d objectForKey:@"Name"];
-        site.ProjectCount = [[d objectForKey:@"ProjectCount"] integerValue];
-        site.City = [d objectForKey:@"City"];
-        site.State = [d objectForKey:@"StateCode"];
-        [sites addObject:site];
+        [sites addObject:[SiteDTO fromDictionary:d]];
     }
     //NSLog(@"sites: %@", sites);
     return sites;
@@ -359,21 +353,14 @@
     NSArray *foldersArr = [dic objectForKey:@"Folders"];
     for (NSDictionary *folderDic in foldersArr)
     {
-        NSDictionary *tdic = [folderDic objectForKey:@"TemplateFolder"];
-        FolderDTO *folder = [[FolderDTO alloc] init];
-        folder.ID = [folderDic objectForKey:@"ID"];
-        folder.Name = [tdic objectForKey:@"Name"];
-        folder.HasDocuments = [[folderDic objectForKey:@"HasDocuments"] boolValue];
-        folder.SubfolderCount = [[folderDic objectForKey:@"SubfolderCount"] integerValue];
-        [results addObject:folder];
+        [results addObject:[FolderDTO fromDictionary:folderDic]];
     }
 
     NSArray *docsArr = [dic objectForKey:@"Documents"];
     for (NSDictionary *docDic in docsArr)
     {
         //NSLog(@"Doc: %@", docDic);
-        DocumentDTO *doc = [DocumentDTO  fromDictionary:docDic];
-        [results addObject:doc];
+        [results addObject:[DocumentDTO  fromDictionary:docDic]];
     }
 
     return results;

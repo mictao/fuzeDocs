@@ -13,4 +13,5 @@
 @property (nonatomic, strong) NSString *Name;
 @property (nonatomic)         BOOL HasDocuments;
 @property (nonatomic)         NSInteger SubfolderCount;
++ (FolderDTO *) fromDictionary:(NSDictionary *)dic;
 @end

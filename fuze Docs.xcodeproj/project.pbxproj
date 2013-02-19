@@ -173,12 +173,8 @@
 				D2C563AF16CC87CA00F786C8 /* LoginViewController.h */,
 				D2C563B016CC87CA00F786C8 /* LoginViewController.m */,
 				D259530216CDC91E006F694A /* iPad Specifics */,
-				142EF2EE16D1732F0088BA25 /* DocsSplitViewController.h */,
-				142EF2EF16D1732F0088BA25 /* DocsSplitViewController.m */,
 				D2896ADA16D2AE64006542C7 /* DocumentPreviewController.h */,
 				D2896ADB16D2AE65006542C7 /* DocumentPreviewController.m */,
-				C3846B6A16D2BF0700208869 /* NavigationViewController.h */,
-				C3846B6B16D2BF0700208869 /* NavigationViewController.m */,
 			);
 			path = "Evoco Docs";
 			sourceTree = "<group>";
@@ -205,6 +201,10 @@
 			children = (
 				D259530316CDCCD1006F694A /* LoginSegue.h */,
 				D259530416CDCCD1006F694A /* LoginSegue.m */,
+				142EF2EE16D1732F0088BA25 /* DocsSplitViewController.h */,
+				142EF2EF16D1732F0088BA25 /* DocsSplitViewController.m */,
+				C3846B6A16D2BF0700208869 /* NavigationViewController.h */,
+				C3846B6B16D2BF0700208869 /* NavigationViewController.m */,
 			);
 			name = "iPad Specifics";
 			sourceTree = "<group>";

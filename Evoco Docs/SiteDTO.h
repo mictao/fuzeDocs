@@ -6,4 +6,7 @@
 @property (nonatomic)         NSInteger ProjectCount;
 @property (nonatomic, strong) NSString  *City;
 @property (nonatomic, strong) NSString  *State;
+
++ (SiteDTO *) fromDictionary:(NSDictionary *)dic;
+
 @end
