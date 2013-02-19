@@ -17,5 +17,6 @@
 @property (nonatomic, strong) NSString *ModifiedDate;
 @property (nonatomic)         BOOL     IsRead;
 
++ (DocumentDTO *) fromDictionary:(NSDictionary*)dic;
 
 @end

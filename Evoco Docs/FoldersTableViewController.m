@@ -14,7 +14,7 @@
 
 @interface FoldersTableViewController ()
 
-@property (nonatomic, strong) NSArray *folderContents;
+@property (nonatomic, strong) NSMutableArray *folderContents;
 @property (nonatomic, strong) NSString *currentPreviewFilePath;
 @property (nonatomic, strong) WebTopClient *wtClient;
 
@@ -39,7 +39,8 @@
 	self.wtClient = [WebTopClient instance];
     if (self.folderID)
     {
-        self.folderContents = [self.wtClient getFolderContents:self.folderID withDeleted:NO withEmptyFolders:YES];
+		NSArray *items = [self.wtClient getFolderContents:self.folderID withDeleted:NO withEmptyFolders:YES];
+        self.folderContents = [NSMutableArray arrayWithArray:items];
     }
 
     // Uncomment the following line to preserve selection between presentations.
@@ -151,8 +152,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	
-	
     id item = self.folderContents[indexPath.row];
     if ([item isKindOfClass:[DocumentDTO class]])
     {
@@ -181,15 +180,12 @@
 	// When user taps a row, create the preview controller
 	QLPreviewController *previewer = [[QLPreviewController alloc] init];
 	
-	
-	
 	// Set data source
 	previewer.dataSource = self;
 	//[previewer setTitle:@"PDF Title"];
 	
 	// Which item to preview
 	previewer.currentPreviewItemIndex = 0;
-	
 	
 	[controller pushViewController:previewer animated:YES];
 }
@@ -281,6 +277,9 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+	//NSDictionary *meta = (NSDictionary *)[info valueForKey:@"UIImagePickerControllerMediaMetadata"];
+	//NSLog(@"%@", meta);
+	
 	
     NSData *imageData =  UIImageJPEGRepresentation(image, 0.5f);
 	
@@ -306,6 +305,13 @@
 	}
 	else
 	{
+		[self.tableView beginUpdates];
+		NSInteger count = self.folderContents.count;
+		[self.folderContents addObject:uploadDTO.Document];
+		NSIndexPath *path = [NSIndexPath indexPathForRow:count inSection:0];
+		[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationFade];
+		[self.tableView endUpdates];
+		
 		[self dismissViewControllerAnimated:YES completion:nil];
 		//dismissModalViewControllerAnimated:YES];
 	}

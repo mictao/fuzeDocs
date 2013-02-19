@@ -252,6 +252,9 @@
         uploadDTO.ErrorMessage = [dic objectForKey:@"ErrorMsg"];
         uploadDTO.TempID = [dic objectForKey:@"TempId"];
         
+        NSDictionary *docDic = [dic objectForKey:@"Doc"];
+        uploadDTO.Document = [DocumentDTO fromDictionary:docDic];
+        
         /*if ((NSNull *)uploadDTO.ErrorMessage == [NSNull null])
         {
             uploadDTO.ErrorMessage = nil;
@@ -265,6 +268,8 @@
     }
     return nil;
 }
+
+
 
 
 - (ClientDTO *) getCurrentClient
@@ -367,13 +372,7 @@
     for (NSDictionary *docDic in docsArr)
     {
         //NSLog(@"Doc: %@", docDic);
-        DocumentDTO *doc = [[DocumentDTO alloc] init];
-        doc.ID = [docDic objectForKey:@"ID"];
-        doc.Name = [docDic objectForKey:@"Name"];
-        doc.DisplaySize = [docDic objectForKey:@"DisplaySize"];
-        doc.UploadedBy = [docDic objectForKey:@"UploadedBy"];
-        doc.ModifiedDate = [docDic objectForKey:@"ModifiedDate"];
-        doc.IsRead = [[docDic objectForKey:@"IsRead"] boolValue];
+        DocumentDTO *doc = [DocumentDTO  fromDictionary:docDic];
         [results addObject:doc];
     }
 
