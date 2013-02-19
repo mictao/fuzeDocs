@@ -282,17 +282,33 @@
 {
     UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
 	
-    NSData *imageData = UIImagePNGRepresentation(image);
+    NSData *imageData =  UIImageJPEGRepresentation(image, 0.5f);
+	
+	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+	[dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+	NSDate *now = [[NSDate alloc] init];
+	NSString *theDate = [dateFormat stringFromDate:now];
+	NSString *fileName = [NSString stringWithFormat:@"Photo %@.jpg", theDate];
 	
 	NSString *uploadUrl = [NSString stringWithFormat: @"Documents/Application/Documents/FileUpload.ashx?FolderID=%@", self.folderID];
 
-	[self.wtClient uploadFile:uploadUrl fromData:imageData];
+	FileUploadDTO *uploadDTO = [self.wtClient uploadFile:uploadUrl withName:fileName fromData:imageData];
 	
-	//NSLog(@"%d", imageData.length);
-	
-    // do twitter stuff here....
-	
-    //[self dismissModalViewControllerAnimated:YES];
+	if (uploadDTO.ErrorMessage.length > 0)
+	{
+		UIAlertView *alertView = [[UIAlertView alloc]
+								  initWithTitle:@"Upload Error"
+								  message:uploadDTO.ErrorMessage
+								  delegate:nil
+								  cancelButtonTitle:@"OK"
+								  otherButtonTitles:nil];
+		[alertView show];
+	}
+	else
+	{
+		[self dismissViewControllerAnimated:YES completion:nil];
+		//dismissModalViewControllerAnimated:YES];
+	}
 }
 
 

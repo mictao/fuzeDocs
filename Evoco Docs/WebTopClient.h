@@ -4,7 +4,7 @@
 #import "ProjectDTO.h"
 #import "FolderDTO.h"
 #import "DocumentDTO.h"
-
+#import "FileUploadDTO.h"
 
 
 
@@ -25,6 +25,6 @@
 - (NSArray *) getFolderContents:(NSString *)parentFolderID withDeleted:(BOOL)includeDeleted withEmptyFolders:(BOOL)includeEmptyFolders;
 
 - (NSData *) downloadFile:(NSString *)urlString;
-- (void) uploadFile:(NSString *)urlString fromData:(NSData *)fileData;
+- (FileUploadDTO *) uploadFile:(NSString *)urlString withName:(NSString *)fileName fromData:(NSData *)fileData;
 
 @end

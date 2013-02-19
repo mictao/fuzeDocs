@@ -212,7 +212,7 @@
 }
 
 
-- (void) uploadFile:(NSString *)urlString fromData:(NSData *)fileData
+- (FileUploadDTO *) uploadFile:(NSString *)urlString withName:(NSString *)fileName fromData:(NSData *)fileData
 {
     NSURL *url = [NSURL URLWithString:[self.clientUrl stringByAppendingString:urlString]];
     NSLog(@"%@", url);
@@ -225,7 +225,7 @@
     NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
     [req setAllHTTPHeaderFields:cookieHeaders];
     [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [req setValue:@"_test.png"                         forHTTPHeaderField:@"X-File-Name"];
+    [req setValue:fileName                             forHTTPHeaderField:@"X-File-Name"];
     [req setValue:@"0"                                 forHTTPHeaderField:@"X-File-TempId"];
     
     NSString* len = [[NSString alloc] initWithFormat:@"%d", fileData.length];
@@ -237,9 +237,33 @@
     NSError *error = nil;
     NSURLResponse *resp;
     
-    NSData *respData = [NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&error];
-    NSLog(@"Error: %@", error);
-
+    NSData *data = [NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&error];
+    
+    //NSLog(@"Error: %@", error);
+    
+    if (data.length > 0 && error == nil)
+    {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        //NSLog(@"Error: %@", error);
+        //NSLog(@"JSON: %@", dic);
+        
+        FileUploadDTO *uploadDTO = [[FileUploadDTO alloc] init];
+        uploadDTO.SuccessMessage = [dic objectForKey:@"SuccessMsg"];
+        uploadDTO.ErrorMessage = [dic objectForKey:@"ErrorMsg"];
+        uploadDTO.TempID = [dic objectForKey:@"TempId"];
+        
+        /*if ((NSNull *)uploadDTO.ErrorMessage == [NSNull null])
+        {
+            uploadDTO.ErrorMessage = nil;
+        }*/
+        
+        return uploadDTO;
+    }
+    else if (error != nil)
+    {
+        NSLog(@"Error: %@", error);
+    }
+    return nil;
 }
 
 

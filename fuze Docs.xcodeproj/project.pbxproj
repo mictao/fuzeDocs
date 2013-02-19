@@ -14,6 +14,7 @@
 		1422903A16CE0FAD002488D2 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1422903916CE0FAD002488D2 /* QuickLook.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		142EF2ED16D01CA60088BA25 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142EF2EC16D01CA60088BA25 /* QuartzCore.framework */; };
 		142EF2F016D1732F0088BA25 /* DocsSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142EF2EF16D1732F0088BA25 /* DocsSplitViewController.m */; };
+		142EF2F316D2F6780088BA25 /* FileUploadDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 142EF2F216D2F6780088BA25 /* FileUploadDTO.m */; };
 		14382FE216CC32CB0062C71E /* SiteDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 14382FE116CC32CB0062C71E /* SiteDTO.m */; };
 		14382FE516CC52070062C71E /* ProjectDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 14382FE416CC52070062C71E /* ProjectDTO.m */; };
 		147111A216CAC2FD007840D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147111A116CAC2FD007840D4 /* UIKit.framework */; };
@@ -54,6 +55,8 @@
 		142EF2EC16D01CA60088BA25 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		142EF2EE16D1732F0088BA25 /* DocsSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocsSplitViewController.h; sourceTree = "<group>"; };
 		142EF2EF16D1732F0088BA25 /* DocsSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocsSplitViewController.m; sourceTree = "<group>"; };
+		142EF2F116D2F6780088BA25 /* FileUploadDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUploadDTO.h; sourceTree = "<group>"; };
+		142EF2F216D2F6780088BA25 /* FileUploadDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUploadDTO.m; sourceTree = "<group>"; };
 		14382FE016CC32CB0062C71E /* SiteDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteDTO.h; sourceTree = "<group>"; };
 		14382FE116CC32CB0062C71E /* SiteDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteDTO.m; sourceTree = "<group>"; };
 		14382FE316CC52070062C71E /* ProjectDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDTO.h; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				1422903216CD5723002488D2 /* ClientDTO.m */,
 				1422903416CD657A002488D2 /* DocumentDTO.h */,
 				1422903516CD657A002488D2 /* DocumentDTO.m */,
+				142EF2F116D2F6780088BA25 /* FileUploadDTO.h */,
+				142EF2F216D2F6780088BA25 /* FileUploadDTO.m */,
 			);
 			name = DTOs;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				142EF2F016D1732F0088BA25 /* DocsSplitViewController.m in Sources */,
 				D2896ADC16D2AE65006542C7 /* DocumentPreviewController.m in Sources */,
 				C3846B6C16D2BF0700208869 /* NavigationViewController.m in Sources */,
+				142EF2F316D2F6780088BA25 /* FileUploadDTO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
